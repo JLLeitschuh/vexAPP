@@ -75,6 +75,11 @@ public class teamsListFrame extends javax.swing.JFrame {
 
         newTeamButton.setText("New Team");
         newTeamButton.setToolTipText("Create a new team.");
+        newTeamButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newTeamButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -114,12 +119,21 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        startFrame start = new startFrame();
-        start.setSize(this.getWidth(), getHeight());
-        start.setLocation(this.getX(), this.getY());
-        start.setVisible(true);
+        startFrame frame = new startFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void newTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTeamButtonActionPerformed
+        // TODO add your handling code here:
+        editTeamsListFrame frame = new editTeamsListFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_newTeamButtonActionPerformed
 
     /**
      * @param args the command line arguments

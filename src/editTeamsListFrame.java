@@ -26,7 +26,7 @@ public class editTeamsListFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -48,12 +48,17 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         layout.rowHeights = new int[] {0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
-        jButton1.setText("<< Back");
-        jButton1.setToolTipText("Return to main screen.");
+        backButton.setText("<< Back");
+        backButton.setToolTipText("Return to main screen.");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(backButton, gridBagConstraints);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Team List"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
@@ -136,6 +141,16 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        teamsListFrame teams = new teamsListFrame();
+        teams.setSize(this.getWidth(), getHeight());
+        teams.setLocation(this.getX(), this.getY());
+        teams.setVisible(true);
+        //this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,7 +187,7 @@ public class editTeamsListFrame extends javax.swing.JFrame {
          */
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
