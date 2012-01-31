@@ -25,18 +25,13 @@ public class newEventFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jButton1 = new javax.swing.JButton();
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -75,13 +70,9 @@ public class newEventFrame extends javax.swing.JFrame {
         /*
          * Create and display the form
          */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new newEventFrame().setVisible(true);
-            }
-        });
     }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

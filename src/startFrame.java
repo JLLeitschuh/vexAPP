@@ -102,7 +102,8 @@ public class startFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         teamsListFrame teams = new teamsListFrame();
-        //teams.setSize(WIDTH, WIDTH);
+        teams.setSize(this.getWidth(), getHeight());
+        teams.setLocation(this.getX(), this.getY());
         teams.setVisible(true);
         //this.setVisible(false);
         this.dispose();
@@ -157,7 +158,7 @@ public class startFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel startMainFrame;
     // End of variables declaration//GEN-END:variables

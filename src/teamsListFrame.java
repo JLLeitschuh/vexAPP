@@ -35,6 +35,7 @@ public class teamsListFrame extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Teams");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
@@ -48,6 +49,8 @@ public class teamsListFrame extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jList1.setToolTipText("Select");
         jList1.setMaximumSize(new java.awt.Dimension(39, 120));
         jList1.setMinimumSize(new java.awt.Dimension(39, 120));
         jList1.setPreferredSize(new java.awt.Dimension(39, 120));
@@ -111,7 +114,10 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        new startFrame().setVisible(true);
+        startFrame start = new startFrame();
+        start.setSize(this.getWidth(), getHeight());
+        start.setLocation(this.getX(), this.getY());
+        start.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
