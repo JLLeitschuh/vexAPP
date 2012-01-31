@@ -165,13 +165,6 @@ public class startFrame extends javax.swing.JFrame {
         /*
          * Create and display the form
          */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            @Override
-            public void run() {
-                new startFrame().setVisible(true);
-            }
-        });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

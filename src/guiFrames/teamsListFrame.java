@@ -90,6 +90,11 @@ public class teamsListFrame extends javax.swing.JFrame {
 
         editTeamButton.setText("Edit Team");
         editTeamButton.setToolTipText("Edit a pre-existing team.");
+        editTeamButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTeamButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
@@ -130,12 +135,21 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void newTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTeamButtonActionPerformed
         // TODO add your handling code here:
-        editTeamsListFrame frame = new editTeamsListFrame();
+        newTeamsListFrame frame = new newTeamsListFrame();
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_newTeamButtonActionPerformed
+
+    private void editTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeamButtonActionPerformed
+        // TODO add your handling code here:
+        editTeamsListFrame frame = new editTeamsListFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editTeamButtonActionPerformed
 
     /**
      * @param args the command line arguments

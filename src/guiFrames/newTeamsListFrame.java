@@ -1,20 +1,21 @@
 package guiFrames;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+import javax.swing.JOptionPane;
 
+/*
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
+ */
 /**
  *
  * @author jonathanleitschuh
  */
-public class editTeamsListFrame extends javax.swing.JFrame {
+public class newTeamsListFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form editTeamsListFrame
      */
-    public editTeamsListFrame() {
+    public newTeamsListFrame() {
         initComponents();
     }
 
@@ -35,8 +36,7 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         teamNumberLabel = new javax.swing.JLabel();
         teamNumber = new javax.swing.JTextField();
         teamLetter = new javax.swing.JComboBox();
-        saveButton = new javax.swing.JButton();
-        javax.swing.JButton saveCloseButton = new javax.swing.JButton();
+        createTeamButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
@@ -57,7 +57,7 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         getContentPane().add(backButton, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Team Preferences"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Create New Team"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         jPanel2Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0};
@@ -80,6 +80,7 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         jPanel2.add(teamNumberLabel, gridBagConstraints);
 
+        teamNumber.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         teamNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 teamNumberActionPerformed(evt);
@@ -97,20 +98,6 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         jPanel2.add(teamLetter, gridBagConstraints);
 
-        saveButton.setText("Save");
-        saveButton.setToolTipText("Save without closing the window");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        jPanel2.add(saveButton, gridBagConstraints);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -119,17 +106,17 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(jPanel2, gridBagConstraints);
 
-        saveCloseButton.setText("Save and Close");
-        saveCloseButton.addActionListener(new java.awt.event.ActionListener() {
+        createTeamButton.setText("Create Team!");
+        createTeamButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveCloseButtonActionPerformed(evt);
+                createTeamButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        getContentPane().add(saveCloseButton, gridBagConstraints);
+        getContentPane().add(createTeamButton, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,22 +135,23 @@ public class editTeamsListFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void saveCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCloseButtonActionPerformed
+    private void createTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTeamButtonActionPerformed
         // TODO add your handling code here:
-        
-        //TODO add a new team when this is pressed!
-        teamsListFrame teams = new teamsListFrame();
-        teams.setSize(this.getWidth(), getHeight());
-        teams.setLocation(this.getX(), this.getY());
-        teams.setVisible(true);
-        //this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_saveCloseButtonActionPerformed
+        try {
+            if (Double.parseDouble(this.teamNumber.getText()) > 0) {
+                teamsListFrame teams = new teamsListFrame();
+                teams.setSize(this.getWidth(), getHeight());
+                teams.setLocation(this.getX(), this.getY());
+                teams.setVisible(true);
+                this.dispose();
+            }
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_saveButtonActionPerformed
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Bad Team Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        //TODO add a new team when this is pressed!
+    }//GEN-LAST:event_createTeamButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,24 +174,24 @@ public class editTeamsListFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(editTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(editTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(editTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(editTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /*
          * Create and display the form
          */
-   }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JButton createTeamButton;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton saveButton;
     private javax.swing.JComboBox teamLetter;
     private javax.swing.JTextField teamName;
     private javax.swing.JLabel teamNameLabel;

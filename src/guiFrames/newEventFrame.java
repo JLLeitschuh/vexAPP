@@ -111,6 +111,7 @@ public class newEventFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 8;
         getContentPane().add(jButton1, gridBagConstraints);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Select teams in this event."));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jList1.setModel(new javax.swing.AbstractListModel() {
@@ -118,10 +119,11 @@ public class newEventFrame extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        jList1.setToolTipText("Select multiple teams using the \"control\" key and clicking.");
         jScrollPane1.setViewportView(jList1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.ipadx = 400;
         jPanel1.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

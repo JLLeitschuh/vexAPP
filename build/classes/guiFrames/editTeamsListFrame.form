@@ -39,7 +39,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Edit Team List"/>
+            <TitledBorder title="Edit Team Preferences"/>
           </Border>
         </Property>
       </Properties>
@@ -49,9 +49,9 @@
         </Constraint>
       </Constraints>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="teamNameLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
+            <Property name="text" type="java.lang.String" value="Team Name:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -59,14 +59,14 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="teamName">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
               <GridBagConstraints gridX="4" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="100" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="teamNumberLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Team Number:"/>
           </Properties>
@@ -76,9 +76,9 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="teamNumber">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="teamNumberActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -86,7 +86,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="teamLetter">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="28">
@@ -127,80 +127,17 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="2" gridY="4" gridWidth="11" gridHeight="1" fill="0" ipadX="160" ipadY="2" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel3">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="tab2">
-                    <Property name="tabTitle" type="java.lang.String" value="tab2"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel4">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="tab3">
-                    <Property name="tabTitle" type="java.lang.String" value="tab3"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-            </Container>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="tab4">
-                    <Property name="tabTitle" type="java.lang.String" value="tab4"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea2">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="jPanel1">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="tab1">
-                    <Property name="tabTitle" type="java.lang.String" value="tab1"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="saveButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Save"/>
-            <Property name="toolTipText" type="java.lang.String" value="Save this team"/>
+            <Property name="toolTipText" type="java.lang.String" value="Save without closing the window"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-              <GridBagConstraints gridX="12" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+              <GridBagConstraints gridX="10" gridY="6" gridWidth="3" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -310,11 +247,11 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="8_jLabel1">
-              <CodeVariable name="jLabel1" type="8194" declaredType="javax.swing.JLabel"/>
+            <CodeExpression id="8_teamNameLabel">
+              <CodeVariable name="teamNameLabel" type="8194" declaredType="javax.swing.JLabel"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jLabel1"/>
+                  <ComponentRef name="teamNameLabel"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>
@@ -379,11 +316,11 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="13_jTextField1">
-              <CodeVariable name="jTextField1" type="8194" declaredType="javax.swing.JTextField"/>
+            <CodeExpression id="13_teamName">
+              <CodeVariable name="teamName" type="8194" declaredType="javax.swing.JTextField"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jTextField1"/>
+                  <ComponentRef name="teamName"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>
@@ -435,11 +372,11 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="17_jLabel2">
-              <CodeVariable name="jLabel2" type="8194" declaredType="javax.swing.JLabel"/>
+            <CodeExpression id="17_teamNumberLabel">
+              <CodeVariable name="teamNumberLabel" type="8194" declaredType="javax.swing.JLabel"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jLabel2"/>
+                  <ComponentRef name="teamNumberLabel"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>
@@ -504,11 +441,11 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="22_jTextField2">
-              <CodeVariable name="jTextField2" type="8194" declaredType="javax.swing.JTextField"/>
+            <CodeExpression id="22_teamNumber">
+              <CodeVariable name="teamNumber" type="8194" declaredType="javax.swing.JTextField"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jTextField2"/>
+                  <ComponentRef name="teamNumber"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>
@@ -560,11 +497,11 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="26_jComboBox1">
-              <CodeVariable name="jComboBox1" type="8194" declaredType="javax.swing.JComboBox"/>
+            <CodeExpression id="26_teamLetter">
+              <CodeVariable name="teamLetter" type="8194" declaredType="javax.swing.JComboBox"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jComboBox1"/>
+                  <ComponentRef name="teamLetter"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>
@@ -592,7 +529,7 @@
           <Parameters>
             <CodeExpression id="28">
               <ExpressionOrigin>
-                <Value type="int" value="2"/>
+                <Value type="int" value="10"/>
               </ExpressionOrigin>
             </CodeExpression>
           </Parameters>
@@ -605,7 +542,7 @@
           <Parameters>
             <CodeExpression id="29">
               <ExpressionOrigin>
-                <Value type="int" value="4"/>
+                <Value type="int" value="6"/>
               </ExpressionOrigin>
             </CodeExpression>
           </Parameters>
@@ -618,7 +555,7 @@
           <Parameters>
             <CodeExpression id="30">
               <ExpressionOrigin>
-                <Value type="int" value="11"/>
+                <Value type="int" value="3"/>
               </ExpressionOrigin>
             </CodeExpression>
           </Parameters>
@@ -626,40 +563,12 @@
         <CodeStatement>
           <CodeExpression id="27_gridBagConstraints"/>
           <StatementProvider type="CodeField">
-            <CodeField name="ipadx" class="java.awt.GridBagConstraints"/>
+            <CodeField name="anchor" class="java.awt.GridBagConstraints"/>
           </StatementProvider>
           <Parameters>
             <CodeExpression id="31">
               <ExpressionOrigin>
-                <Value type="int" value="160"/>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="27_gridBagConstraints"/>
-          <StatementProvider type="CodeField">
-            <CodeField name="ipady" class="java.awt.GridBagConstraints"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="32">
-              <ExpressionOrigin>
-                <Value type="int" value="2"/>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="27_gridBagConstraints"/>
-          <StatementProvider type="CodeField">
-            <CodeField name="insets" class="java.awt.GridBagConstraints"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="33">
-              <ExpressionOrigin>
-                <Value type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[10, 10, 10, 10]"/>
-                </Value>
+                <Value type="int" value="22"/>
               </ExpressionOrigin>
             </CodeExpression>
           </Parameters>
@@ -670,79 +579,40 @@
             <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
           </StatementProvider>
           <Parameters>
-            <CodeExpression id="34_jTabbedPane1">
-              <CodeVariable name="jTabbedPane1" type="8194" declaredType="javax.swing.JTabbedPane"/>
+            <CodeExpression id="32_saveButton">
+              <CodeVariable name="saveButton" type="8194" declaredType="javax.swing.JButton"/>
               <ExpressionOrigin>
                 <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jTabbedPane1"/>
+                  <ComponentRef name="saveButton"/>
                 </ExpressionProvider>
               </ExpressionOrigin>
             </CodeExpression>
             <CodeExpression id="27_gridBagConstraints"/>
           </Parameters>
         </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="35_gridBagConstraints">
-            <CodeVariable name="gridBagConstraints"/>
-            <ExpressionOrigin>
-              <ExpressionProvider type="CodeConstructor">
-                <CodeConstructor class="java.awt.GridBagConstraints" parameterTypes=""/>
-              </ExpressionProvider>
-            </ExpressionOrigin>
-          </CodeExpression>
-          <StatementProvider type="CodeExpression">
-            <CodeExpression id="35_gridBagConstraints"/>
-          </StatementProvider>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="35_gridBagConstraints"/>
-          <StatementProvider type="CodeField">
-            <CodeField name="gridx" class="java.awt.GridBagConstraints"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="36">
-              <ExpressionOrigin>
-                <Value type="int" value="12"/>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="35_gridBagConstraints"/>
-          <StatementProvider type="CodeField">
-            <CodeField name="gridy" class="java.awt.GridBagConstraints"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="37">
-              <ExpressionOrigin>
-                <Value type="int" value="6"/>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="4_jPanel2"/>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="38_jButton2">
-              <CodeVariable name="jButton2" type="8194" declaredType="javax.swing.JButton"/>
-              <ExpressionOrigin>
-                <ExpressionProvider type="ComponentRef">
-                  <ComponentRef name="jButton2"/>
-                </ExpressionProvider>
-              </ExpressionOrigin>
-            </CodeExpression>
-            <CodeExpression id="35_gridBagConstraints"/>
-          </Parameters>
-        </CodeStatement>
       </LayoutCode>
     </Container>
+    <Component class="javax.swing.JButton" name="saveCloseButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save and Close"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveCloseButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="4" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
   </SubComponents>
   <LayoutCode>
     <CodeStatement>
-      <CodeExpression id="39_layout">
+      <CodeExpression id="33_layout">
         <CodeVariable name="layout" type="4096" declaredType="java.awt.GridBagLayout"/>
         <ExpressionOrigin>
           <ExpressionProvider type="CodeConstructor">
@@ -751,16 +621,16 @@
         </ExpressionOrigin>
       </CodeExpression>
       <StatementProvider type="CodeExpression">
-        <CodeExpression id="39_layout"/>
+        <CodeExpression id="33_layout"/>
       </StatementProvider>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="39_layout"/>
+      <CodeExpression id="33_layout"/>
       <StatementProvider type="CodeField">
         <CodeField name="columnWidths" class="java.awt.GridBagLayout"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="40">
+        <CodeExpression id="34">
           <ExpressionOrigin>
             <Value type="[I" editor="org.netbeans.modules.form.layoutsupport.delegates.GridBagLayoutSupport$IntArrayPropertyEditor">
               <PropertyValue value="[0, 5, 0, 5, 0, 5, 0]"/>
@@ -770,12 +640,12 @@
       </Parameters>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="39_layout"/>
+      <CodeExpression id="33_layout"/>
       <StatementProvider type="CodeField">
         <CodeField name="rowHeights" class="java.awt.GridBagLayout"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="41">
+        <CodeExpression id="35">
           <ExpressionOrigin>
             <Value type="[I" editor="org.netbeans.modules.form.layoutsupport.delegates.GridBagLayoutSupport$IntArrayPropertyEditor">
               <PropertyValue value="[0, 5, 0, 5, 0]"/>
@@ -785,9 +655,9 @@
       </Parameters>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="42">
+      <CodeExpression id="36">
         <ExpressionOrigin>
-          <CodeExpression id="43">
+          <CodeExpression id="37">
             <ExpressionOrigin>
               <ExpressionProvider type="ComponentRef">
                 <ComponentRef name="."/>
@@ -803,11 +673,11 @@
         <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="39_layout"/>
+        <CodeExpression id="33_layout"/>
       </Parameters>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="44_gridBagConstraints">
+      <CodeExpression id="38_gridBagConstraints">
         <CodeVariable name="gridBagConstraints"/>
         <ExpressionOrigin>
           <ExpressionProvider type="CodeConstructor">
@@ -816,16 +686,16 @@
         </ExpressionOrigin>
       </CodeExpression>
       <StatementProvider type="CodeExpression">
-        <CodeExpression id="44_gridBagConstraints"/>
+        <CodeExpression id="38_gridBagConstraints"/>
       </StatementProvider>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="44_gridBagConstraints"/>
+      <CodeExpression id="38_gridBagConstraints"/>
       <StatementProvider type="CodeField">
         <CodeField name="gridx" class="java.awt.GridBagConstraints"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="45">
+        <CodeExpression id="39">
           <ExpressionOrigin>
             <Value type="int" value="2"/>
           </ExpressionOrigin>
@@ -833,12 +703,12 @@
       </Parameters>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="44_gridBagConstraints"/>
+      <CodeExpression id="38_gridBagConstraints"/>
       <StatementProvider type="CodeField">
         <CodeField name="gridy" class="java.awt.GridBagConstraints"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="46">
+        <CodeExpression id="40">
           <ExpressionOrigin>
             <Value type="int" value="4"/>
           </ExpressionOrigin>
@@ -846,12 +716,12 @@
       </Parameters>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="42"/>
+      <CodeExpression id="36"/>
       <StatementProvider type="CodeMethod">
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="47_backButton">
+        <CodeExpression id="41_backButton">
           <CodeVariable name="backButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
@@ -859,7 +729,97 @@
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
-        <CodeExpression id="44_gridBagConstraints"/>
+        <CodeExpression id="38_gridBagConstraints"/>
+      </Parameters>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="42_gridBagConstraints">
+        <CodeVariable name="gridBagConstraints"/>
+        <ExpressionOrigin>
+          <ExpressionProvider type="CodeConstructor">
+            <CodeConstructor class="java.awt.GridBagConstraints" parameterTypes=""/>
+          </ExpressionProvider>
+        </ExpressionOrigin>
+      </CodeExpression>
+      <StatementProvider type="CodeExpression">
+        <CodeExpression id="42_gridBagConstraints"/>
+      </StatementProvider>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="42_gridBagConstraints"/>
+      <StatementProvider type="CodeField">
+        <CodeField name="gridx" class="java.awt.GridBagConstraints"/>
+      </StatementProvider>
+      <Parameters>
+        <CodeExpression id="43">
+          <ExpressionOrigin>
+            <Value type="int" value="2"/>
+          </ExpressionOrigin>
+        </CodeExpression>
+      </Parameters>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="42_gridBagConstraints"/>
+      <StatementProvider type="CodeField">
+        <CodeField name="gridy" class="java.awt.GridBagConstraints"/>
+      </StatementProvider>
+      <Parameters>
+        <CodeExpression id="44">
+          <ExpressionOrigin>
+            <Value type="int" value="0"/>
+          </ExpressionOrigin>
+        </CodeExpression>
+      </Parameters>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="42_gridBagConstraints"/>
+      <StatementProvider type="CodeField">
+        <CodeField name="gridwidth" class="java.awt.GridBagConstraints"/>
+      </StatementProvider>
+      <Parameters>
+        <CodeExpression id="45">
+          <ExpressionOrigin>
+            <Value type="int" value="3"/>
+          </ExpressionOrigin>
+        </CodeExpression>
+      </Parameters>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="42_gridBagConstraints"/>
+      <StatementProvider type="CodeField">
+        <CodeField name="ipady" class="java.awt.GridBagConstraints"/>
+      </StatementProvider>
+      <Parameters>
+        <CodeExpression id="46">
+          <ExpressionOrigin>
+            <Value type="int" value="10"/>
+          </ExpressionOrigin>
+        </CodeExpression>
+      </Parameters>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="42_gridBagConstraints"/>
+      <StatementProvider type="CodeField">
+        <CodeField name="insets" class="java.awt.GridBagConstraints"/>
+      </StatementProvider>
+      <Parameters>
+        <CodeExpression id="47">
+          <ExpressionOrigin>
+            <Value type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[10, 0, 10, 0]"/>
+            </Value>
+          </ExpressionOrigin>
+        </CodeExpression>
+      </Parameters>
+    </CodeStatement>
+    <CodeStatement>
+      <CodeExpression id="36"/>
+      <StatementProvider type="CodeMethod">
+        <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
+      </StatementProvider>
+      <Parameters>
+        <CodeExpression id="4_jPanel2"/>
+        <CodeExpression id="42_gridBagConstraints"/>
       </Parameters>
     </CodeStatement>
     <CodeStatement>
@@ -883,7 +843,7 @@
       <Parameters>
         <CodeExpression id="49">
           <ExpressionOrigin>
-            <Value type="int" value="2"/>
+            <Value type="int" value="4"/>
           </ExpressionOrigin>
         </CodeExpression>
       </Parameters>
@@ -896,7 +856,7 @@
       <Parameters>
         <CodeExpression id="50">
           <ExpressionOrigin>
-            <Value type="int" value="0"/>
+            <Value type="int" value="4"/>
           </ExpressionOrigin>
         </CodeExpression>
       </Parameters>
@@ -904,51 +864,30 @@
     <CodeStatement>
       <CodeExpression id="48_gridBagConstraints"/>
       <StatementProvider type="CodeField">
-        <CodeField name="gridwidth" class="java.awt.GridBagConstraints"/>
+        <CodeField name="anchor" class="java.awt.GridBagConstraints"/>
       </StatementProvider>
       <Parameters>
         <CodeExpression id="51">
           <ExpressionOrigin>
-            <Value type="int" value="3"/>
+            <Value type="int" value="22"/>
           </ExpressionOrigin>
         </CodeExpression>
       </Parameters>
     </CodeStatement>
     <CodeStatement>
-      <CodeExpression id="48_gridBagConstraints"/>
-      <StatementProvider type="CodeField">
-        <CodeField name="ipady" class="java.awt.GridBagConstraints"/>
-      </StatementProvider>
-      <Parameters>
-        <CodeExpression id="52">
-          <ExpressionOrigin>
-            <Value type="int" value="10"/>
-          </ExpressionOrigin>
-        </CodeExpression>
-      </Parameters>
-    </CodeStatement>
-    <CodeStatement>
-      <CodeExpression id="48_gridBagConstraints"/>
-      <StatementProvider type="CodeField">
-        <CodeField name="insets" class="java.awt.GridBagConstraints"/>
-      </StatementProvider>
-      <Parameters>
-        <CodeExpression id="53">
-          <ExpressionOrigin>
-            <Value type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-              <Insets value="[10, 0, 10, 0]"/>
-            </Value>
-          </ExpressionOrigin>
-        </CodeExpression>
-      </Parameters>
-    </CodeStatement>
-    <CodeStatement>
-      <CodeExpression id="42"/>
+      <CodeExpression id="36"/>
       <StatementProvider type="CodeMethod">
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="4_jPanel2"/>
+        <CodeExpression id="52_saveCloseButton">
+          <CodeVariable name="saveCloseButton" type="4096" declaredType="javax.swing.JButton"/>
+          <ExpressionOrigin>
+            <ExpressionProvider type="ComponentRef">
+              <ComponentRef name="saveCloseButton"/>
+            </ExpressionProvider>
+          </ExpressionOrigin>
+        </CodeExpression>
         <CodeExpression id="48_gridBagConstraints"/>
       </Parameters>
     </CodeStatement>
