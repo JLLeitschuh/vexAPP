@@ -7,12 +7,12 @@
  *
  * @author jonathanleitschuh
  */
-public class teamsList extends javax.swing.JFrame {
+public class teamsListFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form teamsList
+     * Creates new form teamsListFrame
      */
-    public teamsList() {
+    public teamsListFrame() {
         initComponents();
     }
 
@@ -29,9 +29,9 @@ public class teamsList extends javax.swing.JFrame {
         teamList = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        newTeamButton = new javax.swing.JButton();
+        editTeamButton = new javax.swing.JButton();
+        deleteTeamButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,27 +70,27 @@ public class teamsList extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(teamList, gridBagConstraints);
 
-        jButton1.setText("New Team");
-        jButton1.setToolTipText("Create a new team.");
+        newTeamButton.setText("New Team");
+        newTeamButton.setToolTipText("Create a new team.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(newTeamButton, gridBagConstraints);
 
-        jButton2.setText("Edit Team");
-        jButton2.setToolTipText("Edit a pre-existing team.");
+        editTeamButton.setText("Edit Team");
+        editTeamButton.setToolTipText("Edit a pre-existing team.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
-        getContentPane().add(jButton2, gridBagConstraints);
+        getContentPane().add(editTeamButton, gridBagConstraints);
 
-        jButton3.setText("Delete");
-        jButton3.setToolTipText("Delete this team.");
+        deleteTeamButton.setText("Delete");
+        deleteTeamButton.setToolTipText("Delete this team.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
-        getContentPane().add(jButton3, gridBagConstraints);
+        getContentPane().add(deleteTeamButton, gridBagConstraints);
 
         backButton.setText("<< Back");
         backButton.setToolTipText("Go back to main screen.");
@@ -136,13 +136,13 @@ public class teamsList extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(teamsList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(teamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(teamsList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(teamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(teamsList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(teamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(teamsList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(teamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -151,12 +151,12 @@ public class teamsList extends javax.swing.JFrame {
          */
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton backButton;
+    private javax.swing.JButton deleteTeamButton;
+    private javax.swing.JButton editTeamButton;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton newTeamButton;
     private javax.swing.JPanel teamList;
     // End of variables declaration//GEN-END:variables
 }

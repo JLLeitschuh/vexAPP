@@ -101,7 +101,7 @@ public class startFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        teamsList teams = new teamsList();
+        teamsListFrame teams = new teamsListFrame();
         //teams.setSize(WIDTH, WIDTH);
         teams.setVisible(true);
         //this.setVisible(false);

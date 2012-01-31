@@ -74,7 +74,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="newTeamButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="New Team"/>
         <Property name="toolTipText" type="java.lang.String" value="Create a new team."/>
@@ -85,7 +85,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="editTeamButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Edit Team"/>
         <Property name="toolTipText" type="java.lang.String" value="Edit a pre-existing team."/>
@@ -96,7 +96,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="deleteTeamButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete"/>
         <Property name="toolTipText" type="java.lang.String" value="Delete this team."/>
@@ -374,11 +374,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="19_jButton1">
-          <CodeVariable name="jButton1" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="19_newTeamButton">
+          <CodeVariable name="newTeamButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButton1"/>
+              <ComponentRef name="newTeamButton"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -430,11 +430,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="23_jButton2">
-          <CodeVariable name="jButton2" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="23_editTeamButton">
+          <CodeVariable name="editTeamButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButton2"/>
+              <ComponentRef name="editTeamButton"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -486,11 +486,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="27_jButton3">
-          <CodeVariable name="jButton3" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="27_deleteTeamButton">
+          <CodeVariable name="deleteTeamButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButton3"/>
+              <ComponentRef name="deleteTeamButton"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -571,7 +571,7 @@
       </StatementProvider>
       <Parameters>
         <CodeExpression id="33_backButton">
-          <CodeVariable name="backButton" type="8194" declaredType="javax.swing.JButton"/>
+          <CodeVariable name="backButton" type="8193" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
               <ComponentRef name="backButton"/>
