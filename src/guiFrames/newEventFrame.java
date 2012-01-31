@@ -1,3 +1,5 @@
+package guiFrames;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -27,13 +29,22 @@ public class newEventFrame extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         backButton = new javax.swing.JButton();
-        teamNameTextboxLabel = new javax.swing.JLabel();
+        eventNameTextboxLabel = new javax.swing.JLabel();
+        eventName = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        teamNumber = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("VEX Alliance Selection App");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         backButton.setText("<< Back");
@@ -44,20 +55,80 @@ public class newEventFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         getContentPane().add(backButton, gridBagConstraints);
 
-        teamNameTextboxLabel.setText("Team Name:");
+        eventNameTextboxLabel.setText("Event Name:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        getContentPane().add(teamNameTextboxLabel, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        getContentPane().add(eventNameTextboxLabel, gridBagConstraints);
 
-        jTextField1.setText("jTextField1");
+        eventName.setToolTipText("Enter team name.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 350;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        getContentPane().add(eventName, gridBagConstraints);
+
+        jLabel1.setText("Event Code:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        getContentPane().add(jLabel1, gridBagConstraints);
+
+        teamNumber.setToolTipText("OPTIONAL");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 120;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        getContentPane().add(teamNumber, gridBagConstraints);
+
+        jLabel2.setText("Date:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(0, 60, 0, 0);
+        getContentPane().add(jLabel2, gridBagConstraints);
+
+        jTextField1.setToolTipText("Insert date here: mm/dd/yyyy ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 105;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         getContentPane().add(jTextField1, gridBagConstraints);
+
+        jButton1.setText("Create Event!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        getContentPane().add(jButton1, gridBagConstraints);
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.ipadx = 300;
+        jPanel1.add(jScrollPane1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 7;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,7 +180,15 @@ public class newEventFrame extends javax.swing.JFrame {
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JTextField eventName;
+    private javax.swing.JLabel eventNameTextboxLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel teamNameTextboxLabel;
+    private javax.swing.JTextField teamNumber;
     // End of variables declaration//GEN-END:variables
 }

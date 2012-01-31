@@ -1,3 +1,5 @@
+package guiFrames;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -34,12 +36,13 @@ public class startFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("VEX Alliance Selection App");
 
         startMainFrame.setName("primaryFrame");
         startMainFrame.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel1.setText("<html>\n<center>\nWelcome to the VEX Alliance Selection App <br>\nBy team: 4886\n</center>\n");
+        jLabel1.setText("<html>\n<center>\nWelcome to the VEX Alliance Selection App <br>\nBy Team: 4886\n</center>\n");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;

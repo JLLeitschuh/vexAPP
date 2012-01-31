@@ -1,3 +1,5 @@
+package guiFrames;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -35,7 +37,7 @@ public class teamsListFrame extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Teams");
+        setTitle("VEX Alliance Selection App");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
