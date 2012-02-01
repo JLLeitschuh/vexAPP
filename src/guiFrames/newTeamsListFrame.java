@@ -147,7 +147,7 @@ public class newTeamsListFrame extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Bad Team Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Invalid Team Number", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
         //TODO add a new team when this is pressed!
