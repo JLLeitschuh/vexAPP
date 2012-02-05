@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Teams>
-    <team number="4886">
-        <name>Aperature</name>
-    </team>
-</Teams>
+<teams>
+	<team id="1">
+		<teamnumber>4886</teamnumber>
+		<teamletter>A</teamletter>
+		<teamname>Aperture Science</teamname>
+	</team>
+	<team id="2">
+		<teamnumber>4668</teamnumber>
+		<teamletter>B</teamletter>
+		<teamname>Black Mesa</teamname>
+	</team>
+</teams>
