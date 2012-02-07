@@ -28,9 +28,9 @@ public class teamsListFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        teamList = new javax.swing.JPanel();
+        teamListFrame = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        teamList = new javax.swing.JList();
         newTeamButton = new javax.swing.JButton();
         editTeamButton = new javax.swing.JButton();
         deleteTeamButton = new javax.swing.JButton();
@@ -43,27 +43,27 @@ public class teamsListFrame extends javax.swing.JFrame {
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
-        teamList.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
-        teamList.setLayout(new java.awt.GridBagLayout());
+        teamListFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
+        teamListFrame.setLayout(new java.awt.GridBagLayout());
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        teamList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList1.setToolTipText("Select");
-        jList1.setMaximumSize(new java.awt.Dimension(39, 120));
-        jList1.setMinimumSize(new java.awt.Dimension(39, 120));
-        jList1.setPreferredSize(new java.awt.Dimension(39, 120));
-        jScrollPane1.setViewportView(jList1);
+        teamList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        teamList.setToolTipText("Select");
+        teamList.setMaximumSize(new java.awt.Dimension(39, 120));
+        teamList.setMinimumSize(new java.awt.Dimension(39, 120));
+        teamList.setPreferredSize(new java.awt.Dimension(39, 120));
+        jScrollPane1.setViewportView(teamList);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 325;
         gridBagConstraints.ipady = 50;
-        teamList.add(jScrollPane1, gridBagConstraints);
+        teamListFrame.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -73,7 +73,7 @@ public class teamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.ipady = 117;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
-        getContentPane().add(teamList, gridBagConstraints);
+        getContentPane().add(teamListFrame, gridBagConstraints);
 
         newTeamButton.setText("New Team");
         newTeamButton.setToolTipText("Create a new team.");
@@ -190,9 +190,9 @@ public class teamsListFrame extends javax.swing.JFrame {
     public javax.swing.JButton backButton;
     private javax.swing.JButton deleteTeamButton;
     private javax.swing.JButton editTeamButton;
-    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton newTeamButton;
-    private javax.swing.JPanel teamList;
+    private javax.swing.JList teamList;
+    private javax.swing.JPanel teamListFrame;
     // End of variables declaration//GEN-END:variables
 }

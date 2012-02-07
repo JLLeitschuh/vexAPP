@@ -10,4 +10,9 @@
 		<teamletter>B</teamletter>
 		<teamname>Black Mesa</teamname>
 	</team>
+        <team id="3">
+		<teamnumber>4668</teamnumber>
+		<teamletter>C</teamletter>
+		<teamname>The Cake</teamname>
+	</team>
 </teams>
