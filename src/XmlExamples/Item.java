@@ -8,6 +8,7 @@ package XmlExamples;
  *
  * @author jonathanleitschuh
  */
+// CREDITS FOR THIS CODE GOES TO: Lars Vogel  http://www.vogella.de/articles/JavaXML/article.html
 
 public class Item {
 	private String date; 
@@ -47,7 +48,7 @@ public class Item {
 	public void setInteractive(String interactive) {
 		this.interactive = interactive;
 	}
-
+        
 	@Override
 	public String toString() {
 		return "Item [current=" + current + ", date=" + date + ", interactive="
