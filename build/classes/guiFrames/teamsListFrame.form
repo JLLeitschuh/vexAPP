@@ -51,14 +51,8 @@
           <SubComponents>
             <Component class="javax.swing.JList" name="teamList">
               <Properties>
-                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                    <StringItem index="4" value="Item 5"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="listModelTeams" type="code"/>
                 </Property>
                 <Property name="selectionMode" type="int" value="0"/>
                 <Property name="toolTipText" type="java.lang.String" value="Select"/>
@@ -72,6 +66,9 @@
                   <Dimension value="[39, 120]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DefaultListModel listModelTeams = new DefaultListModel();&#xa;TeamStaXParser read = new TeamStaXParser();&#xa;&#x9;&#x9;List&lt;TeamObject&gt; readConfig = read.readConfig(&quot;src/Data/teamData/teams/masterTeamList.xml&quot;);&#xa;                for (TeamObject item : readConfig) {&#xa;                    listModelTeams.addElement(item.getTeamName());&#xa;&#x9;&#x9;}"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

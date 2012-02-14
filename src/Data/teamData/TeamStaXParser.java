@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package guiFrames.Data.teamData;
+package Data.teamData;
 
 /**
  *
@@ -10,6 +10,7 @@ package guiFrames.Data.teamData;
  */
 // CREDITS FOR THIS CODE GOES TO: Lars Vogel  http://www.vogella.de/articles/JavaXML/article.html
 
+import Objects.TeamObject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -24,7 +25,7 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-//import TeamItem;
+//import TeamObject;
 
 public class TeamStaXParser {
 	static final String ID = "id";
@@ -36,8 +37,8 @@ public class TeamStaXParser {
         static final String ROBOTNAME = "robotname";
 
 	@SuppressWarnings({ "unchecked", "null" })
-	public List<TeamItem> readConfig(String configFile) {
-		List<TeamItem> items = new ArrayList<TeamItem>();
+	public List<TeamObject> readConfig(String configFile) {
+		List<TeamObject> items = new ArrayList<TeamObject>();
 		try {
 			// First create a new XMLInputFactory
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();
@@ -45,7 +46,7 @@ public class TeamStaXParser {
 			InputStream in = new FileInputStream(configFile);
 			XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
 			// Read the XML document
-			TeamItem item = null;
+			TeamObject item = null;
 
 			while (eventReader.hasNext()) {
 				XMLEvent event = eventReader.nextEvent();
@@ -54,7 +55,7 @@ public class TeamStaXParser {
 					StartElement startElement = event.asStartElement();
 					// If we have a item element we create a new item
 					if (startElement.getName().getLocalPart() == (TEAM)) {
-						item = new TeamItem();
+						item = new TeamObject();
 						// We read the attributes from this tag and add the id
 						// attribute to our object
 						Iterator<Attribute> attributes = startElement

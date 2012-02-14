@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package guiFrames.Data.teamData;
+package Data.teamData;
 
 /**
  *
@@ -10,16 +10,16 @@ package guiFrames.Data.teamData;
  */
 // CREDITS FOR THIS CODE GOES TO: Lars Vogel  http://www.vogella.de/articles/JavaXML/article.html
 
-import guiFrames.Data.teamData.*;
+import Objects.TeamObject;
 import java.util.List;
 
 
 public class TeamTestRead {
 	public static void main(String args[]) {
 		TeamStaXParser read = new TeamStaXParser();
-		List<TeamItem> readConfig = read.readConfig("src/guiFrames/Data/teamData/teams/masterTeamList.xml");
-		for (TeamItem item : readConfig) {
-			System.out.println(item.getId() + " " + item.getTeamNumber() + item.getTeamLetter());
+		List<TeamObject> readConfig = read.readConfig("src/Data/teamData/teams/masterTeamList.xml");
+                for (TeamObject item : readConfig) {
+                    System.out.println(item);
 		}
 	}
 }

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package guiFrames.Data.teamData;
+package Objects;
 
 /**
  *
@@ -10,8 +10,9 @@ package guiFrames.Data.teamData;
  */
 // CREDITS FOR THIS CODE GOES TO: Lars Vogel  http://www.vogella.de/articles/JavaXML/article.html
 
-public class TeamItem {
-	private String id; 
+public class TeamObject {
+        private int idnumber;
+	private String id;
 	private String teamnumber;
 	private String teamletter;
 	private String teamname;
@@ -20,7 +21,11 @@ public class TeamItem {
 	
 	public String getId() {
 		return id;
-	}
+	}        
+        public int getIdNumber(){
+                idnumber = Integer.parseInt(id);
+                return idnumber;
+        }
 	public void setId(String id) {
 		this.id = id;
 	}

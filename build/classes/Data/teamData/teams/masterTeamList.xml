@@ -28,4 +28,11 @@
                 <location>Thetford, Vermont</location>
                 <robotname>The Chabot II 4</robotname>
 	</team>
+        <team id="5">
+		<teamnumber>4668</teamnumber>
+		<teamletter>D</teamletter>
+		<teamname>The Cake</teamname>
+                <location>Thetford, Vermont</location>
+                <robotname>The Chabot II 4</robotname>
+	</team>
 </teams>

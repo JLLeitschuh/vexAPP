@@ -9,6 +9,12 @@ package guiFrames;
  *
  * @author jonathanleitschuh
  */
+import Data.teamData.TeamStaXParser;
+import Objects.TeamObject;
+import java.util.List;
+import javax.swing.DefaultListModel;
+        
+        
 public class teamsListFrame extends javax.swing.JFrame {
 
     /**
@@ -30,6 +36,12 @@ public class teamsListFrame extends javax.swing.JFrame {
 
         teamListFrame = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        DefaultListModel listModelTeams = new DefaultListModel();
+        TeamStaXParser read = new TeamStaXParser();
+        List<TeamObject> readConfig = read.readConfig("src/Data/teamData/teams/masterTeamList.xml");
+        for (TeamObject item : readConfig) {
+            listModelTeams.addElement(item.getTeamName());
+        }
         teamList = new javax.swing.JList();
         newTeamButton = new javax.swing.JButton();
         editTeamButton = new javax.swing.JButton();
@@ -46,11 +58,7 @@ public class teamsListFrame extends javax.swing.JFrame {
         teamListFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
         teamListFrame.setLayout(new java.awt.GridBagLayout());
 
-        teamList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
+        teamList.setModel(listModelTeams);
         teamList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         teamList.setToolTipText("Select");
         teamList.setMaximumSize(new java.awt.Dimension(39, 120));
