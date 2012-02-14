@@ -91,7 +91,7 @@ public class startFrame extends javax.swing.JFrame {
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
                     .add(0, 0, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 601, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
                     .add(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -100,7 +100,7 @@ public class startFrame extends javax.swing.JFrame {
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
                     .add(0, 0, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 389, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                     .add(0, 0, Short.MAX_VALUE)))
         );
 

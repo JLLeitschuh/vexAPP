@@ -59,7 +59,27 @@ public class TeamObject {
 	public void setRobotName(String robotname) {
 		this.robotname = robotname;
 	}
-        
+        public String getTeamList(){
+            if(teamnumber.length()== 1)
+            {
+                return "  " + id + "            " + teamnumber + teamletter + "          " + teamname;
+            }
+            else if(teamnumber.length()== 2)
+            {
+                return "  " + id + "            " + teamnumber + teamletter + "           " + teamname;
+            }
+            else if(teamnumber.length()== 3)
+            {
+                return "  " + id + "            " + teamnumber + teamletter + "            " + teamname;
+            }
+            else if(teamnumber.length()== 4)
+            {
+                return "  " + id + "            " + teamnumber + teamletter + "             " + teamname;
+            }
+            else{
+                return null;
+            }
+        }
 
 	@Override
 	public String toString() {

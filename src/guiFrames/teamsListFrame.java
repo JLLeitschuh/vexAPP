@@ -40,9 +40,12 @@ public class teamsListFrame extends javax.swing.JFrame {
         TeamStaXParser read = new TeamStaXParser();
         List<TeamObject> readConfig = read.readConfig("src/Data/teamData/teams/masterTeamList.xml");
         for (TeamObject item : readConfig) {
-            listModelTeams.addElement(item.getTeamName());
+            listModelTeams.addElement(item.getTeamList());
         }
         teamList = new javax.swing.JList();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         newTeamButton = new javax.swing.JButton();
         editTeamButton = new javax.swing.JButton();
         deleteTeamButton = new javax.swing.JButton();
@@ -69,9 +72,32 @@ public class teamsListFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 325;
         gridBagConstraints.ipady = 50;
         teamListFrame.add(jScrollPane1, gridBagConstraints);
+
+        jLabel1.setText("ID");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 8, 0, 0);
+        teamListFrame.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setText("Team #");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 44, 0, 0);
+        teamListFrame.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setText("Team Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 60, 0, 0);
+        teamListFrame.add(jLabel3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -198,6 +224,9 @@ public class teamsListFrame extends javax.swing.JFrame {
     public javax.swing.JButton backButton;
     private javax.swing.JButton deleteTeamButton;
     private javax.swing.JButton editTeamButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton newTeamButton;
     private javax.swing.JList teamList;
