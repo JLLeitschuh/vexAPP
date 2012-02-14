@@ -37,4 +37,10 @@ public class MatchTeamObject {
     public void setNumber(String NUMBER){
         this.number = NUMBER;
     }
+    public Boolean getVexNetFail(){
+        return vexnetfail;
+    }
+    public void setVexNetFail(Boolean VEXNETFAIL){
+        this.vexnetfail = VEXNETFAIL;
+    }
 }
