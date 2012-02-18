@@ -15,4 +15,9 @@
 		<teamletter>C</teamletter>
 		<teamname>The Cake</teamname>
 	</team>
+        <team id="4">
+		<teamnumber>44</teamnumber>
+		<teamletter>-</teamletter>
+		<teamname>Green Egg Robotics</teamname>
+	</team>
 </teams>

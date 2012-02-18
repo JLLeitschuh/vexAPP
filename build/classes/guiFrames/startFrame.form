@@ -72,7 +72,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="New Event"/>
+            <Property name="text" type="java.lang.String" value="New Meet"/>
             <Property name="toolTipText" type="java.lang.String" value="Create a new event."/>
           </Properties>
           <Events>
@@ -86,7 +86,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Existing Event"/>
+            <Property name="text" type="java.lang.String" value="Existing Meet"/>
             <Property name="toolTipText" type="java.lang.String" value="Open an existing event"/>
           </Properties>
           <Constraints>
@@ -95,13 +95,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="TeamsEditButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Team List"/>
             <Property name="toolTipText" type="java.lang.String" value="Make changes to the saved team lists."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TeamsEditButtonActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

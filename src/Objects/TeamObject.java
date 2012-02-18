@@ -9,6 +9,12 @@ package Objects;
  * @author jonathanleitschuh
  */
 // CREDITS FOR THIS CODE GOES TO: Lars Vogel  http://www.vogella.de/articles/JavaXML/article.html
+
+/*
+ * This object is the basic team object for everything. For extended usage of this
+ * object in a match use MatchTeamObject
+ * 
+ */
 public class TeamObject {
 
     private int idnumber;
@@ -18,6 +24,7 @@ public class TeamObject {
     private String teamname;
     private String location;
     private String robotname;
+    private String spacereturnlength;
 
     public String getId() {
         return id;
@@ -74,21 +81,22 @@ public class TeamObject {
 
     public String getTeamList() {
         if (teamnumber.length() == 1) {
-            return "  " + id + "            " + teamnumber + teamletter + "          " + teamname;
+            spacereturnlength = "          ";
         } else if (teamnumber.length() == 2) {
-            return "  " + id + "            " + teamnumber + teamletter + "           " + teamname;
+            spacereturnlength = "           ";
         } else if (teamnumber.length() == 3) {
-            return "  " + id + "            " + teamnumber + teamletter + "            " + teamname;
+            spacereturnlength = "             ";
         } else if (teamnumber.length() == 4) {
-            return "  " + id + "            " + teamnumber + teamletter + "             " + teamname;
-        } else {
-            return null;
+            spacereturnlength = "              ";
+        } else if (teamnumber.length() == 5) {
+            spacereturnlength = "               ";
         }
+        return (getIdNumber()+1) + "              " + teamnumber + teamletter + spacereturnlength + teamname;
     }
 
     @Override
     public String toString() {
-        return "Item [ID=" + id + ", Team Name=" + teamname + ", Location="
+        return "Item [ID=" + (getIdNumber()+1) + ", Team Name=" + teamname + ", Location="
                 + location + ", Team Number=" + teamnumber + ", Team Letter=" + teamletter + ", RobotName=" + robotname + "]";
     }
 }

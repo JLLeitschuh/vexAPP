@@ -8,7 +8,7 @@ package Objects;
  *
  * @author jonathanleitschuh
  */
-public class MatchObject {
-    public MatchAllianceObject red;
-    public MatchAllianceObject blue;    
+public class MatchAllianceObject{
+    public MatchTeamObject teamone;
+    public MatchTeamObject teamtwo;
 }

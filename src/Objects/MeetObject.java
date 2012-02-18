@@ -8,7 +8,9 @@ package Objects;
  *
  * @author jonathanleitschuh
  */
-public class MatchObject {
-    public MatchAllianceObject red;
-    public MatchAllianceObject blue;    
+public class MeetObject {
+    private String name;
+    private String eventcode;
+    private String 
+    
 }

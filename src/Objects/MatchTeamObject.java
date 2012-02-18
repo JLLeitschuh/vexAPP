@@ -8,39 +8,28 @@ package Objects;
  *
  * @author jonathanleitschuh
  */
-public class MatchTeamObject {
-    private String id;
-    private int idnumber;
-    private String name;
-    private String number;
-    private Boolean vexnetfail;
+public class MatchTeamObject extends TeamObject{
+    private Boolean vexnetfail = false;
+    private Boolean primaryscorer = true;
+    private Boolean batteryfail = false;
     
-    public String getID(){
-        return id;
-    }
-    public void setID(String ID){
-        this.id = ID;
-    }
-    public int getIdNumber() {
-        idnumber = Integer.parseInt(id);
-        return idnumber;
-    }
-    public String getName(){
-        return name;
-    }
-    public void setName(String NAME){
-        this.name = NAME;
-    }
-    public String getNumber(){
-        return number;
-    }
-    public void setNumber(String NUMBER){
-        this.number = NUMBER;
-    }
     public Boolean getVexNetFail(){
         return vexnetfail;
     }
     public void setVexNetFail(Boolean VEXNETFAIL){
         this.vexnetfail = VEXNETFAIL;
+    } 
+    public Boolean getPrimaryScorer(){
+        return primaryscorer;
     }
+    public void setPrimaryScore(Boolean PRIMARYSCORER){
+        this.primaryscorer = PRIMARYSCORER;
+    }
+    public Boolean getBatteryFail(){
+        return batteryfail;
+    }
+    public void setBatteryFail(Boolean BATTERYFAIL){
+        this.primaryscorer = BATTERYFAIL;
+    }
+    
 }

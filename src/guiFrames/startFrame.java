@@ -33,7 +33,7 @@ public class startFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        TeamsEditButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
@@ -49,7 +49,7 @@ public class startFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         startMainFrame.add(jLabel1, gridBagConstraints);
 
-        jButton1.setText("New Event");
+        jButton1.setText("New Meet");
         jButton1.setToolTipText("Create a new event.");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +62,7 @@ public class startFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
         startMainFrame.add(jButton1, gridBagConstraints);
 
-        jButton2.setText("Existing Event");
+        jButton2.setText("Existing Meet");
         jButton2.setToolTipText("Open an existing event");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -70,18 +70,18 @@ public class startFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
         startMainFrame.add(jButton2, gridBagConstraints);
 
-        jButton3.setText("Edit Team List");
-        jButton3.setToolTipText("Make changes to the saved team lists.");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        TeamsEditButton.setText("Edit Team List");
+        TeamsEditButton.setToolTipText("Make changes to the saved team lists.");
+        TeamsEditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                TeamsEditButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
-        startMainFrame.add(jButton3, gridBagConstraints);
+        startMainFrame.add(TeamsEditButton, gridBagConstraints);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,7 +107,7 @@ public class startFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void TeamsEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeamsEditButtonActionPerformed
         // TODO add your handling code here:
         teamsListFrame teams = new teamsListFrame();
         teams.setSize(this.getWidth(), getHeight());
@@ -115,11 +115,11 @@ public class startFrame extends javax.swing.JFrame {
         teams.setVisible(true);
         //this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_TeamsEditButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        newEventFrame frame = new newEventFrame();
+        newMeetFrame frame = new newMeetFrame();
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
@@ -167,9 +167,9 @@ public class startFrame extends javax.swing.JFrame {
          */
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton TeamsEditButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel startMainFrame;
     // End of variables declaration//GEN-END:variables

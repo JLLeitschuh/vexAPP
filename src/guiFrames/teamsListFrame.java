@@ -59,7 +59,10 @@ public class teamsListFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
 
         teamListFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
-        teamListFrame.setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagLayout teamListFrameLayout = new java.awt.GridBagLayout();
+        teamListFrameLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        teamListFrameLayout.rowHeights = new int[] {0, 5, 0, 5, 0};
+        teamListFrame.setLayout(teamListFrameLayout);
 
         teamList.setModel(listModelTeams);
         teamList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -70,31 +73,31 @@ public class teamsListFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(teamList);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 325;
         gridBagConstraints.ipady = 50;
         teamListFrame.add(jScrollPane1, gridBagConstraints);
 
         jLabel1.setText("ID");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 8, 0, 0);
         teamListFrame.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("Team #");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 44, 0, 0);
         teamListFrame.add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("Team Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 60, 0, 0);
         teamListFrame.add(jLabel3, gridBagConstraints);

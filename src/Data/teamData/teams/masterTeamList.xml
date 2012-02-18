@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <teams>
-	<team id="1">
+	<team id="0">
 		<teamnumber>4886</teamnumber>
 		<teamletter>A</teamletter>
 		<teamname>Aperture Science</teamname>
                 <location>Thetford, Vermont</location>
                 <robotname>The Chabot II</robotname>
 	</team>
-	<team id="2">
+	<team id="1">
 		<teamnumber>4668</teamnumber>
 		<teamletter>B</teamletter>
 		<teamname>Black Mesa</teamname>
                 <location>Thetford, Vermont</location>
                 <robotname>The Chabot II 2</robotname>
 	</team>
-        <team id="3">
+        <team id="2">
 		<teamnumber>4668</teamnumber>
 		<teamletter>C</teamletter>
 		<teamname>Wallie</teamname>
                 <location>Thetford, Vermont</location>
                 <robotname>The Chabot II 3</robotname>
 	</team>
-        <team id="4">
+        <team id="3">
 		<teamnumber>4668</teamnumber>
 		<teamletter>D</teamletter>
 		<teamname>The Cake</teamname>
                 <location>Thetford, Vermont</location>
                 <robotname>The Chabot II 4</robotname>
+	</team>
+        <team id="4">
+		<teamnumber>44</teamnumber>
+		<teamletter>-</teamletter>
+		<teamname>Green Egg Robotics</teamname>
+                <location>Thetford, Vermont</location>
+                <robotname>Fred IV</robotname>
+	</team>
+        <team id="5">
+		<teamnumber>44</teamnumber>
+		<teamletter>-</teamletter>
+		<teamname>Green Egg Robotics</teamname>
+                <location>Thetford, Vermont</location>
+                <robotname>Fred IV</robotname>
 	</team>
 </teams>
