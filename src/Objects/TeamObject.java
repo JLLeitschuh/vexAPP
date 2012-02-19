@@ -65,23 +65,23 @@ public class TeamObject extends TeamLabelObject implements Serializable{
     }
 
     public String getTeamList() {
-        if (teamnumber.length() == 1) {
+        if (getTeamNumb().length() == 1) {
             spacereturnlength = "          ";
-        } else if (teamnumber.length() == 2) {
+        } else if (getTeamNumb().length() == 2) {
             spacereturnlength = "           ";
-        } else if (teamnumber.length() == 3) {
+        } else if (getTeamNumb().length() == 3) {
             spacereturnlength = "             ";
-        } else if (teamnumber.length() == 4) {
+        } else if (getTeamNumb().length() == 4) {
             spacereturnlength = "              ";
-        } else if (teamnumber.length() == 5) {
+        } else if (getTeamNumb().length() == 5) {
             spacereturnlength = "               ";
         }
-        return (getIdNumber()+1) + "              " + teamnumber + teamletter + spacereturnlength + teamname;
+        return (getIdNumber()+1) + "              " + (getTeamNumb()) + (getTeamLetter()) + spacereturnlength + teamname;
     }
 
     @Override
     public String toString() {
         return "Item [ID=" + id + ", Team Name=" + teamname + ", Location="
-                + location + ", Team Number=" + teamnumber + ", Team Letter=" + teamletter + ", RobotName=" + robotname + "]";
+                + location + ", Team Number=" + getTeamNumb() + ", Team Letter=" + (getTeamLetter()) + ", RobotName=" + robotname + "]";
     }
 }

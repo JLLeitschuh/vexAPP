@@ -4,11 +4,13 @@
  */
 package Objects;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jonathanleitschuh
  */
-public class TeamLabelObject {
+public class TeamLabelObject implements Serializable{
 
     private int getTeamNumb;
     private String teamnumb;
