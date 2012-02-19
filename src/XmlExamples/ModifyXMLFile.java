@@ -62,7 +62,7 @@ public class ModifyXMLFile {
 		   if ("firstname".equals(node.getNodeName())) {
 			staff.removeChild(node);
 		   }
- 
+                   
 		}
  
 		// write the content into xml file

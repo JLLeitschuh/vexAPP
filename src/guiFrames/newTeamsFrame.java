@@ -1,5 +1,6 @@
 package guiFrames;
 
+import Objects.TeamObject;
 import javax.swing.JOptionPane;
 
 /*
@@ -10,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author jonathanleitschuh
  */
-public class newTeamsListFrame extends javax.swing.JFrame {
+public class newTeamsFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form editTeamsListFrame
      */
-    public newTeamsListFrame() {
+    public newTeamsFrame() {
         initComponents();
     }
 
@@ -35,7 +36,12 @@ public class newTeamsListFrame extends javax.swing.JFrame {
         teamName = new javax.swing.JTextField();
         teamNumberLabel = new javax.swing.JLabel();
         teamNumber = new javax.swing.JTextField();
-        teamLetter = new javax.swing.JComboBox();
+        location = new javax.swing.JTextField();
+        robotNameLabel = new javax.swing.JLabel();
+        locationLabel = new javax.swing.JLabel();
+        robotName = new javax.swing.JTextField();
+        teamLetter = new javax.swing.JTextField();
+        teamLetterLabel = new javax.swing.JLabel();
         createTeamButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,24 +65,26 @@ public class newTeamsListFrame extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Create New Team"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        jPanel2Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         jPanel2Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0};
         jPanel2.setLayout(jPanel2Layout);
 
+        teamNameLabel.setLabelFor(teamName);
         teamNameLabel.setText("Team Name:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         jPanel2.add(teamNameLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 100;
         jPanel2.add(teamName, gridBagConstraints);
 
+        teamNumberLabel.setLabelFor(teamNumber);
         teamNumberLabel.setText("Team Number:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 2;
         jPanel2.add(teamNumberLabel, gridBagConstraints);
 
@@ -87,16 +95,50 @@ public class newTeamsListFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 70;
         jPanel2.add(teamNumber, gridBagConstraints);
-
-        teamLetter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 200;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        jPanel2.add(location, gridBagConstraints);
+
+        robotNameLabel.setLabelFor(robotName);
+        robotNameLabel.setText("Robot Name:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jPanel2.add(robotNameLabel, gridBagConstraints);
+
+        locationLabel.setLabelFor(location);
+        locationLabel.setText("Location:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jPanel2.add(locationLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 100;
+        jPanel2.add(robotName, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 12;
         jPanel2.add(teamLetter, gridBagConstraints);
+
+        teamLetterLabel.setLabelFor(teamLetter);
+        teamLetterLabel.setText("Team Letter:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 2;
+        jPanel2.add(teamLetterLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -137,6 +179,21 @@ public class newTeamsListFrame extends javax.swing.JFrame {
 
     private void createTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTeamButtonActionPerformed
         // TODO add your handling code here:
+        TeamObject team = new TeamObject();
+        team.setTeamName(teamName.getText());
+        team.setTeamNumber(teamNumber.getText());
+        team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
+        team.setRobotName(robotName.getText());
+        team.setLocation(location.getText());
+        
+        
+        
+        
+        
+        
+        
+        
+        
         try {
             if (Double.parseDouble(this.teamNumber.getText()) > 0) {
                 teamsListFrame teams = new teamsListFrame();
@@ -174,13 +231,13 @@ public class newTeamsListFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(newTeamsListFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(newTeamsFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -192,7 +249,12 @@ public class newTeamsListFrame extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton createTeamButton;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JComboBox teamLetter;
+    private javax.swing.JTextField location;
+    private javax.swing.JLabel locationLabel;
+    private javax.swing.JTextField robotName;
+    private javax.swing.JLabel robotNameLabel;
+    private javax.swing.JTextField teamLetter;
+    private javax.swing.JLabel teamLetterLabel;
     private javax.swing.JTextField teamName;
     private javax.swing.JLabel teamNameLabel;
     private javax.swing.JTextField teamNumber;

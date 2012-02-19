@@ -172,7 +172,7 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void newTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTeamButtonActionPerformed
         // TODO add your handling code here:
-        newTeamsListFrame frame = new newTeamsListFrame();
+        newTeamsFrame frame = new newTeamsFrame();
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
@@ -181,7 +181,7 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void editTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeamButtonActionPerformed
         // TODO add your handling code here:
-        editTeamsListFrame frame = new editTeamsListFrame();
+        editTeamsFrame frame = new editTeamsFrame();
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);

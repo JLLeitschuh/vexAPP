@@ -31,25 +31,24 @@ public class TeamModifyXMLFile {
             // Get the root element
             Node teams = doc.getFirstChild();
             NodeList list = teams.getChildNodes();
-            for (int i = 0; i < list.getLength(); i++)
-            {
+            for (int i = 0; i < list.getLength(); i++) {
                 Node node = list.item(i);
                 for (int j = 0; j < list.getLength(); j++) {
-
-                Node nodeTwo = node.item(j);
-
-                // get the salary element, and update the value
-                if ("salary".equals(nodeTwo.getNodeName())) {
-                    nodeTwo.setTextContent("2000000");
+                    
+                    /*
+                     * Node nodeTwo = node.item(j);
+                     *
+                     * // get the salary element, and update the value if
+                     * ("salary".equals(nodeTwo.getNodeName())) {
+                     * nodeTwo.setTextContent("2000000"); }
+                     *
+                     * //remove firstname if
+                     * ("firstname".equals(nodeTwo.getNodeName())) {
+                     * staff.removeChild(nodeTwo); }
+                     *
+                     */
                 }
 
-                //remove firstname
-                if ("firstname".equals(nodeTwo.getNodeName())) {
-                    staff.removeChild(nodeTwo);
-                }
-
-            }
-                
             }
 
             // Get the staff element , it may not working if tag has spaces, or
@@ -71,7 +70,7 @@ public class TeamModifyXMLFile {
             staff.appendChild(age);
 
             // loop the staff child node
-            NodeList list = staff.getChildNodes();
+         // NodeList list = staff.getChildNodes();
 
             for (int j = 0; j < list.getLength(); j++) {
 

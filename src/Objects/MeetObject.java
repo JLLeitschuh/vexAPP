@@ -4,13 +4,14 @@
  */
 package Objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author jonathanleitschuh
  */
-public class MeetObject {
+public class MeetObject implements Serializable {
     private String name;
     private String eventcode;
     private String date;

@@ -4,11 +4,13 @@
  */
 package Objects;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jonathanleitschuh
  */
-public class MatchAllianceObject{
+public class MatchAllianceObject implements Serializable{
     public MatchTeamObject teamone;
     public MatchTeamObject teamtwo;
 }

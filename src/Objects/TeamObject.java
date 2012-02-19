@@ -4,6 +4,8 @@
  */
 package Objects;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jonathanleitschuh
@@ -15,7 +17,7 @@ package Objects;
  * object in a match use MatchTeamObject
  * 
  */
-public class TeamObject {
+public class TeamObject implements Serializable{
 
     private int idnumber;
     private String id;
@@ -36,7 +38,9 @@ public class TeamObject {
     }
 
     public void setId(String id) {
+        idnumber = Integer.parseInt(id);
         this.id = id;
+        
     }
 
     public String getTeamNumber() {
@@ -96,7 +100,7 @@ public class TeamObject {
 
     @Override
     public String toString() {
-        return "Item [ID=" + (getIdNumber()+1) + ", Team Name=" + teamname + ", Location="
+        return "Item [ID=" + id + ", Team Name=" + teamname + ", Location="
                 + location + ", Team Number=" + teamnumber + ", Team Letter=" + teamletter + ", RobotName=" + robotname + "]";
     }
 }
