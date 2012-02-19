@@ -4,6 +4,8 @@
  */
 package Objects;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jonathanleitschuh
@@ -11,6 +13,15 @@ package Objects;
 public class MeetObject {
     private String name;
     private String eventcode;
-    private String 
+    private String date;
+    private ArrayList<MatchTeamObject> teams;
+    
+    public void addMatch(){
+        
+    }
+    
+    
+    
+    
     
 }
