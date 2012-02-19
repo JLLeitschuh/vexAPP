@@ -12,6 +12,8 @@ public class MatchTeamObject extends TeamObject{
     private Boolean vexnetfail = false;
     private Boolean primaryscorer = true;
     private Boolean batteryfail = false;
+    private int score;
+    private int autonomousscore;
     
     public Boolean getVexNetFail(){
         return vexnetfail;
@@ -30,6 +32,12 @@ public class MatchTeamObject extends TeamObject{
     }
     public void setBatteryFail(Boolean BATTERYFAIL){
         this.primaryscorer = BATTERYFAIL;
+    }
+    public int getScore(){
+        return score;
+    }
+    public void setBatteryFail(int SCORE){
+        this.score = SCORE;
     }
     
 }
