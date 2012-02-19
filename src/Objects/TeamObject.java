@@ -17,12 +17,10 @@ import java.io.Serializable;
  * object in a match use MatchTeamObject
  * 
  */
-public class TeamObject implements Serializable{
+public class TeamObject extends TeamLabelObject implements Serializable{
 
     private int idnumber;
     private String id;
-    private String teamnumber;
-    private String teamletter;
     private String teamname;
     private String location;
     private String robotname;
@@ -42,23 +40,6 @@ public class TeamObject implements Serializable{
         this.id = id;
         
     }
-
-    public String getTeamNumber() {
-        return teamnumber;
-    }
-
-    public void setTeamNumber(String teamnumber) {
-        this.teamnumber = teamnumber;
-    }
-
-    public String getTeamLetter() {
-        return teamletter;
-    }
-
-    public void setTeamLetter(String teamletter) {
-        this.teamletter = teamletter;
-    }
-
     public String getTeamName() {
         return teamname;
     }

@@ -10,25 +10,32 @@ package Objects;
  */
 public class TeamLabelObject {
 
-    private int teamnumber;
+    private int getTeamNumb;
     private String teamnumb;
     private String teamletter;
 
     public void setTeamNumber(int TEAMNUMBER) {
-        this.teamnumber = TEAMNUMBER;
+        this.getTeamNumb = TEAMNUMBER;
         this.teamnumb = Integer.toString(TEAMNUMBER);
     }
 
     public void setTeamNumber(String TEAMNUMB) {
-        this.teamnumber = Integer.parseInt(TEAMNUMB);
+        this.getTeamNumb = Integer.parseInt(TEAMNUMB);
         this.teamnumb = TEAMNUMB;
     }
 
     public int getTeamNumber() {
-        return teamnumber;
+        return getTeamNumb;
     }
 
     public String getTeamNumb() {
         return teamnumb;
+    }
+    public String getTeamLetter() {
+        return teamletter;
+    }
+
+    public void setTeamLetter(String teamletter) {
+        this.teamletter = teamletter;
     }
 }
