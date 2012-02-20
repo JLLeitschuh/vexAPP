@@ -14,16 +14,10 @@ import java.util.logging.Logger;
  * @author jonathanleitschuh
  */
 public class teamWriter {
-    
-    
-    public void writeTeamName(String TEAMNUMBER, String TEAMLETTER){
-        
-    }
-    
     public void writeTeamObject(String TEAMNUMBER, String TEAMLETTER, Object Team) throws FileNotFoundException{
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/" + TEAMNUMBER + "/" + TEAMLETTER + ".dat"));
+            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/" + TEAMNUMBER + "_" + TEAMLETTER + ".dat"));
             oos.writeObject(Team);
             
         } catch (IOException ex) {

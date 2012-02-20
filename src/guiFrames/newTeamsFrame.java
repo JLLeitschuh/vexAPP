@@ -1,6 +1,7 @@
 package guiFrames;
 
 import Objects.TeamObject;
+import ActionPacks.teamWriter;
 import javax.swing.JOptionPane;
 
 /*
@@ -179,23 +180,18 @@ public class newTeamsFrame extends javax.swing.JFrame {
 
     private void createTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createTeamButtonActionPerformed
         // TODO add your handling code here:
-        TeamObject team = new TeamObject();
-        team.setTeamName(teamName.getText());
-        team.setTeamNumber(teamNumber.getText());
-        team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
-        team.setRobotName(robotName.getText());
-        team.setLocation(location.getText());
-        
-        
-        
-        
-        
-        
-        
-        
-        
         try {
             if (Double.parseDouble(this.teamNumber.getText()) > 0) {
+                TeamObject team = new TeamObject();
+                team.setTeamName(teamName.getText());
+                team.setTeamNumber(teamNumber.getText());
+                team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
+                team.setRobotName(robotName.getText());
+                team.setLocation(location.getText());
+                
+                teamWriter writer = new teamWriter();
+                writer.writeTeamObject(teamNumber.getText(), teamLetter.getText(), team);
+                
                 teamsListFrame teams = new teamsListFrame();
                 teams.setSize(this.getWidth(), getHeight());
                 teams.setLocation(this.getX(), this.getY());
