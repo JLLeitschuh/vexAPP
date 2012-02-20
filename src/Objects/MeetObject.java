@@ -17,12 +17,6 @@ public class MeetObject implements Serializable {
     private String date;
     private ArrayList<MatchTeamObject> teams;
     
-    public void addMatch(){
-        
-    }
-    
-    
-    
     
     
 }

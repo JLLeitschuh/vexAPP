@@ -4,6 +4,11 @@
  */
 package ActionPacks;
 
+import Objects.TeamObject;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jonathanleitschuh
@@ -11,6 +16,27 @@ package ActionPacks;
 public class teamWriter {
     
     
+    public void writeTeamName(String TEAMNUMBER, String TEAMLETTER){
+        
+    }
     
+    public void writeTeamObject(String TEAMNUMBER, String TEAMLETTER, Object Team) throws FileNotFoundException{
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/" + TEAMNUMBER + "/" + TEAMLETTER + ".dat"));
+            oos.writeObject(Team);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(teamWriter.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                oos.close();
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+        
+    }
     
 }

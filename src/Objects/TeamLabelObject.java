@@ -12,22 +12,22 @@ import java.io.Serializable;
  */
 public class TeamLabelObject implements Serializable{
 
-    private int getTeamNumb;
+    private int teamnumber;
     private String teamnumb;
     private String teamletter;
 
     public void setTeamNumber(int TEAMNUMBER) {
-        this.getTeamNumb = TEAMNUMBER;
+        this.teamnumber = TEAMNUMBER;
         this.teamnumb = Integer.toString(TEAMNUMBER);
     }
 
     public void setTeamNumber(String TEAMNUMB) {
-        this.getTeamNumb = Integer.parseInt(TEAMNUMB);
+        this.teamnumber = Integer.parseInt(TEAMNUMB);
         this.teamnumb = TEAMNUMB;
     }
 
     public int getTeamNumber() {
-        return getTeamNumb;
+        return teamnumber;
     }
 
     public String getTeamNumb() {

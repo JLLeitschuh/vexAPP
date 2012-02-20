@@ -13,4 +13,14 @@ import java.io.Serializable;
 public class MatchAllianceObject implements Serializable{
     public MatchTeamObject teamone;
     public MatchTeamObject teamtwo;
+    private int score;
+    
+    public void setScore(int SCORE){
+        this.score = SCORE;
+        teamone.setScore(SCORE);
+        teamtwo.setScore(SCORE);
+    }
+    public int getScore(){
+        return score;
+    }
 }

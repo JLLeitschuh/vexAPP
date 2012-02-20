@@ -4,11 +4,13 @@
  */
 package Objects;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jonathanleitschuh
  */
-public class MatchTeamObject extends TeamObject{
+public class MatchTeamObject extends TeamObject implements Serializable{
     private Boolean vexnetfail = false;
     private Boolean primaryscorer = true;
     private Boolean batteryfail = false;
@@ -36,8 +38,13 @@ public class MatchTeamObject extends TeamObject{
     public int getScore(){
         return score;
     }
-    public void setBatteryFail(int SCORE){
+    public void setScore(int SCORE){
         this.score = SCORE;
     }
-    
+    public int getAutonomousScore(){
+        return autonomousscore;
+    }
+    public void setAutonomousScore(int ASCORE){
+        this.autonomousscore = ASCORE;
+    }
 }
