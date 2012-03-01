@@ -40,4 +40,10 @@ public class TeamLabelObject implements Serializable{
     public void setTeamLetter(String teamletter) {
         this.teamletter = teamletter;
     }
+    
+    @Override
+    public String toString(){
+        return teamnumb + " " + teamletter;
+    }
+            
 }

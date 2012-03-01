@@ -31,37 +31,39 @@ public class TeamObject extends TeamLabelObject implements Serializable{
     }
 
     public int getIdNumber() {
-        idnumber = Integer.parseInt(id);
         return idnumber;
     }
 
-    public void setId(String id) {
-        idnumber = Integer.parseInt(id);
-        this.id = id;
-        
+    public void setId(String ID) {
+        this.idnumber = Integer.parseInt(ID);
+        this.id = ID;
+    }
+    public void setId(int IDN) {
+        this.idnumber = IDN;
+        this.id = Integer.toString(IDN);
     }
     public String getTeamName() {
         return teamname;
     }
 
-    public void setTeamName(String teamname) {
-        this.teamname = teamname;
+    public void setTeamName(String TEAMNAME) {
+        this.teamname = TEAMNAME;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(String LOCATION) {
+        this.location = LOCATION;
     }
 
     public String getRobotName() {
         return robotname;
     }
 
-    public void setRobotName(String robotname) {
-        this.robotname = robotname;
+    public void setRobotName(String ROBOTNAME) {
+        this.robotname = ROBOTNAME;
     }
 
     public String getTeamList() {

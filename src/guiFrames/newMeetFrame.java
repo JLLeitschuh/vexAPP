@@ -1,5 +1,12 @@
 package guiFrames;
 
+import ActionPacks.teamNameReader;
+import Objects.TeamObject;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,6 +17,7 @@ package guiFrames;
  * @author jonathanleitschuh
  */
 public class newMeetFrame extends javax.swing.JFrame {
+    private int length;
 
     /**
      * Creates new form newMeetFrame
@@ -36,15 +44,35 @@ public class newMeetFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        teamListFrame = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+
+        //MY INSERTED CODE FOR THE ARRAY LIST HANDLER
+        //Edit in teamList Code menu under Pre-Creation Code
+        DefaultListModel listModelTeams = new DefaultListModel();
+        teamNameReader read = new teamNameReader();
+        ArrayList<TeamObject> readConfig = null;
+        try {
+            readConfig = read.readTeamNameObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for (TeamObject item : readConfig) {
+            listModelTeams.addElement(item.getTeamList());
+        }
+        length = listModelTeams.size();
+
+        //MY INSERTED CODE FOR THE ARRAY LIST HANDLER END
+        teamList = new javax.swing.JList();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         backButton.setText("<< Back");
@@ -109,28 +137,57 @@ public class newMeetFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         getContentPane().add(jButton1, gridBagConstraints);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Select teams in this event."));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        teamListFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
+        teamListFrame.setLayout(new java.awt.GridBagLayout());
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setToolTipText("Select multiple teams using the \"control\" key and clicking.");
-        jScrollPane1.setViewportView(jList1);
+        teamList.setModel(listModelTeams);
+        teamList.setToolTipText("Select");
+        teamList.setMaximumSize(new java.awt.Dimension(39, 120));
+        teamList.setMinimumSize(new java.awt.Dimension(39, 120));
+        teamList.setPreferredSize(new java.awt.Dimension(39, 120));
+        jScrollPane2.setViewportView(teamList);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 400;
-        jPanel1.add(jScrollPane1, gridBagConstraints);
+        gridBagConstraints.ipady = 50;
+        teamListFrame.add(jScrollPane2, gridBagConstraints);
+
+        jLabel3.setText("ID");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 8, 0, 0);
+        teamListFrame.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("Team #");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 44, 0, 0);
+        teamListFrame.add(jLabel4, gridBagConstraints);
+
+        jLabel5.setText("Team Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 60, 0, 0);
+        teamListFrame.add(jLabel5, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 7;
-        getContentPane().add(jPanel1, gridBagConstraints);
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.ipady = 125;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
+        getContentPane().add(teamListFrame, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,10 +244,13 @@ public class newMeetFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList jList1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JList teamList;
+    private javax.swing.JPanel teamListFrame;
     private javax.swing.JTextField teamNumber;
     // End of variables declaration//GEN-END:variables
 }

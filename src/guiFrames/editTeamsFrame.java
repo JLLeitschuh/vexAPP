@@ -1,5 +1,13 @@
 package guiFrames;
 
+import ActionPacks.teamNameReader;
+import ActionPacks.teamNameWriter;
+import ActionPacks.teamReader;
+import ActionPacks.teamWriter;
+import Objects.TeamObject;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,11 +18,28 @@ package guiFrames;
  * @author jonathanleitschuh
  */
 public class editTeamsFrame extends javax.swing.JFrame {
+    private String idNumB;
+    private int idNumbeR;
+    private String teamNumbeR;
+    private String teamLetteR;
+    private String teamNamE;
+    private String locatioN;
+    private String robotNamE;
 
     /**
      * Creates new form editTeamsFrame
      */
-    public editTeamsFrame() {
+    public editTeamsFrame(String NUMBER, String LETTER) throws ClassNotFoundException {
+        teamReader READ = new teamReader();
+        TeamObject read = (TeamObject)READ.readTeamObject(NUMBER, LETTER);
+        idNumB = read.getId();
+        //idNumbeR = read.getIdNumber();
+        teamNumbeR = read.getTeamNumb();
+        teamLetteR = read.getTeamLetter();
+        teamNamE = read.getTeamName();
+        locatioN = read.getLocation();
+        robotNamE = read.getRobotName();
+        
         initComponents();
     }
 
@@ -34,12 +59,12 @@ public class editTeamsFrame extends javax.swing.JFrame {
         teamName = new javax.swing.JTextField();
         teamNumberLabel = new javax.swing.JLabel();
         teamNumber = new javax.swing.JTextField();
-        teamLetter = new javax.swing.JComboBox();
-        saveButton = new javax.swing.JButton();
         locationLabel = new javax.swing.JLabel();
         robotNameLabel = new javax.swing.JLabel();
         robotName = new javax.swing.JTextField();
         location = new javax.swing.JTextField();
+        teamLetterLabel = new javax.swing.JLabel();
+        teamLetter = new javax.swing.JTextField();
         javax.swing.JButton saveCloseButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,83 +88,87 @@ public class editTeamsFrame extends javax.swing.JFrame {
 
         editTeamPreferences.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Team Preferences"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        jPanel2Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         jPanel2Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         editTeamPreferences.setLayout(jPanel2Layout);
 
         teamNameLabel.setText("Team Name:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        editTeamPreferences.add(teamNameLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 100;
+        editTeamPreferences.add(teamNameLabel, gridBagConstraints);
+
+        teamName.setText(teamNamE);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 150;
         editTeamPreferences.add(teamName, gridBagConstraints);
 
         teamNumberLabel.setText("Team Number:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 2;
         editTeamPreferences.add(teamNumberLabel, gridBagConstraints);
 
+        teamNumber.setText(teamNumbeR);
         teamNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 teamNumberActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 70;
-        editTeamPreferences.add(teamNumber, gridBagConstraints);
-
-        teamLetter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 14;
         gridBagConstraints.gridy = 2;
-        editTeamPreferences.add(teamLetter, gridBagConstraints);
-
-        saveButton.setText("Save");
-        saveButton.setToolTipText("Save without closing the window");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        editTeamPreferences.add(saveButton, gridBagConstraints);
+        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        editTeamPreferences.add(teamNumber, gridBagConstraints);
 
         locationLabel.setText("Location:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         editTeamPreferences.add(locationLabel, gridBagConstraints);
 
         robotNameLabel.setText("Robot Name:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         editTeamPreferences.add(robotNameLabel, gridBagConstraints);
+
+        robotName.setText(robotNamE);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipadx = 150;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         editTeamPreferences.add(robotName, gridBagConstraints);
+
+        location.setText(locatioN);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 14;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 200;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         editTeamPreferences.add(location, gridBagConstraints);
+
+        teamLetterLabel.setLabelFor(teamLetter);
+        teamLetterLabel.setText("Team Letter:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 2;
+        editTeamPreferences.add(teamLetterLabel, gridBagConstraints);
+
+        teamLetter.setText(teamLetteR);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 18;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 12;
+        editTeamPreferences.add(teamLetter, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -180,20 +209,49 @@ public class editTeamsFrame extends javax.swing.JFrame {
 
     private void saveCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCloseButtonActionPerformed
         // TODO add your handling code here:
-        
-        //TODO add a new team when this is pressed!
-        teamsListFrame teams = new teamsListFrame();
-        teams.setSize(this.getWidth(), getHeight());
-        teams.setLocation(this.getX(), this.getY());
-        teams.setVisible(true);
-        //this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_saveCloseButtonActionPerformed
+         try {
+            if (Double.parseDouble(this.teamNumber.getText()) > 0) {
+                
+                TeamObject team = new TeamObject();
+                team.setId(this.idNumB);
+                
+                team.setTeamName(teamName.getText());
+                
+                team.setTeamNumber(teamNumber.getText());
+                team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
+                team.setRobotName(robotName.getText());
+                team.setLocation(location.getText());
+                
+                
+                // Write a new file that contains the team data
+                teamWriter writer = new teamWriter();
+                writer.writeTeamObject(teamNumber.getText(), teamLetter.getText(), team);
+                
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_saveButtonActionPerformed
+                // Read the Array list file
+                teamNameReader read = new teamNameReader();
+                ArrayList<TeamObject> READ = read.readTeamNameObject();
+                
+                
+                // Write the Array list file back
+                teamNameWriter write = new teamNameWriter();
+                write.writeOldTeamObject(idNumB, teamName.getText(), teamNumber.getText(), 
+                        teamLetter.getText().toUpperCase(), robotName.getText(), location.getText(), READ);
+                
+
+                // Close the window here.
+                teamsListFrame teams = new teamsListFrame();
+                teams.setSize(this.getWidth(), getHeight());
+                teams.setLocation(this.getX(), this.getY());
+                teams.setVisible(true);
+                this.dispose();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+            //JOptionPane.showMessageDialog(this, "Invalid Entry" + "\n Please check your entries.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_saveCloseButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,8 +295,8 @@ public class editTeamsFrame extends javax.swing.JFrame {
     private javax.swing.JLabel locationLabel;
     private javax.swing.JTextField robotName;
     private javax.swing.JLabel robotNameLabel;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JComboBox teamLetter;
+    private javax.swing.JTextField teamLetter;
+    private javax.swing.JLabel teamLetterLabel;
     private javax.swing.JTextField teamName;
     private javax.swing.JLabel teamNameLabel;
     private javax.swing.JTextField teamNumber;

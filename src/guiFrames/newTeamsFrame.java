@@ -1,7 +1,10 @@
 package guiFrames;
 
-import Objects.TeamObject;
+import ActionPacks.teamNameReader;
+import ActionPacks.teamNameWriter;
 import ActionPacks.teamWriter;
+import Objects.TeamObject;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -13,11 +16,13 @@ import javax.swing.JOptionPane;
  * @author jonathanleitschuh
  */
 public class newTeamsFrame extends javax.swing.JFrame {
+    private int newid;
 
     /**
      * Creates new form editTeamsListFrame
      */
-    public newTeamsFrame() {
+    public newTeamsFrame(int newId) {
+        newid = newId;
         initComponents();
     }
 
@@ -79,7 +84,7 @@ public class newTeamsFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipadx = 150;
         jPanel2.add(teamName, gridBagConstraints);
 
         teamNumberLabel.setLabelFor(teamNumber);
@@ -126,7 +131,7 @@ public class newTeamsFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.ipadx = 150;
         jPanel2.add(robotName, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 16;
@@ -182,16 +187,30 @@ public class newTeamsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             if (Double.parseDouble(this.teamNumber.getText()) > 0) {
+                
                 TeamObject team = new TeamObject();
+                team.setId(newid);
                 team.setTeamName(teamName.getText());
                 team.setTeamNumber(teamNumber.getText());
                 team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
                 team.setRobotName(robotName.getText());
                 team.setLocation(location.getText());
-                
+
+                // Write a new file that contains the team data
                 teamWriter writer = new teamWriter();
                 writer.writeTeamObject(teamNumber.getText(), teamLetter.getText(), team);
                 
+                
+                // Read the Array list file
+                teamNameReader read = new teamNameReader();
+                ArrayList<TeamObject> READ = read.readTeamNameObject();
+                
+                // Write the Array list file back
+                teamNameWriter write = new teamNameWriter();
+                write.writeTeamObject(Integer.toString(newid), teamName.getText(), teamNumber.getText(), 
+                        teamLetter.getText().toUpperCase(), robotName.getText(), location.getText(), READ);
+                
+                // Close the window here.
                 teamsListFrame teams = new teamsListFrame();
                 teams.setSize(this.getWidth(), getHeight());
                 teams.setLocation(this.getX(), this.getY());
@@ -200,9 +219,8 @@ public class newTeamsFrame extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Invalid Team Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Invalid Entry" + "\n Please check your entries.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-
         //TODO add a new team when this is pressed!
     }//GEN-LAST:event_createTeamButtonActionPerformed
 

@@ -65,7 +65,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DefaultListModel listModelTeams = new DefaultListModel();&#xa;TeamStaXParser read = new TeamStaXParser();&#xa;&#x9;&#x9;List&lt;TeamObject&gt; readConfig = read.readConfig(&quot;src/Data/teamData/teams/masterTeamList.xml&quot;);&#xa;                for (TeamObject item : readConfig) {&#xa;                    listModelTeams.addElement(item.getTeamList());&#xa;&#x9;&#x9;}"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="        &#xa;        //MY INSERTED CODE FOR THE ARRAY LIST HANDLER&#xa;        //Edit in teamList Code menu under Pre-Creation Code&#xa;        DefaultListModel listModelTeams = new DefaultListModel();&#xa;        teamNameReader read = new teamNameReader();&#xa;        ArrayList&lt;TeamObject&gt; readConfig = null;&#xa;        try {&#xa;            readConfig = read.readTeamNameObject();&#xa;        } catch (ClassNotFoundException ex) {&#xa;            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);&#xa;        }&#xa;        for (TeamObject item : readConfig) {&#xa;            listModelTeams.addElement(item.getTeamList());&#xa;        }&#xa;        length = listModelTeams.size();&#xa;        &#xa;        //MY INSERTED CODE FOR THE ARRAY LIST HANDLER END&#xa;"/>
               </AuxValues>
             </Component>
           </SubComponents>

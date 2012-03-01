@@ -11,12 +11,23 @@ import java.util.ArrayList;
  *
  * @author jonathanleitschuh
  */
-public class MeetObject implements Serializable {
+public class MeetObject extends Date implements Serializable {
     private String name;
     private String eventcode;
-    private String date;
-    private ArrayList<MatchTeamObject> teams;
+    public ArrayList<MatchTeamObject> teams;
+    
+    public void setName(String NAME){
+        this.name = NAME;
+    }
+    public String getName(){
+        return name;
+    }
     
     
-    
+    public void setEventCode(String CODE){
+        this.name = CODE;
+    }
+    public String getEventCode(){
+        return eventcode;
+    }
 }

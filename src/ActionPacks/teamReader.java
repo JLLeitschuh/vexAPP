@@ -5,7 +5,9 @@
 package ActionPacks;
 
 import Objects.TeamObject;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,7 +25,8 @@ public class teamReader {
             return team;
         } catch (IOException ex) {
             Logger.getLogger(teamReader.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            TeamObject team = new TeamObject();
+            return team;
         } finally {
             try {
                 ois.close();

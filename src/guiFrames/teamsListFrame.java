@@ -1,21 +1,23 @@
 package guiFrames;
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
-
 /**
  *
  * @author jonathanleitschuh
  */
-import Data.teamData.TeamStaXParser;
+import ActionPacks.teamNameReader;
 import Objects.TeamObject;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-        
-        
+import javax.swing.JOptionPane;
+
 public class teamsListFrame extends javax.swing.JFrame {
+    private int length;
 
     /**
      * Creates new form teamsListFrame
@@ -36,12 +38,23 @@ public class teamsListFrame extends javax.swing.JFrame {
 
         teamListFrame = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+
+        //MY INSERTED CODE FOR THE ARRAY LIST HANDLER
+        //Edit in teamList Code menu under Pre-Creation Code
         DefaultListModel listModelTeams = new DefaultListModel();
-        TeamStaXParser read = new TeamStaXParser();
-        List<TeamObject> readConfig = read.readConfig("src/Data/teamData/teams/masterTeamList.xml");
+        teamNameReader read = new teamNameReader();
+        ArrayList<TeamObject> readConfig = null;
+        try {
+            readConfig = read.readTeamNameObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         for (TeamObject item : readConfig) {
             listModelTeams.addElement(item.getTeamList());
         }
+        length = listModelTeams.size();
+
+        //MY INSERTED CODE FOR THE ARRAY LIST HANDLER END
         teamList = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -172,7 +185,7 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void newTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTeamButtonActionPerformed
         // TODO add your handling code here:
-        newTeamsFrame frame = new newTeamsFrame();
+        newTeamsFrame frame = new newTeamsFrame(length);
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
@@ -181,11 +194,31 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void editTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeamButtonActionPerformed
         // TODO add your handling code here:
-        editTeamsFrame frame = new editTeamsFrame();
-        frame.setSize(this.getWidth(), getHeight());
-        frame.setLocation(this.getX(), this.getY());
-        frame.setVisible(true);
-        this.dispose();
+        try {
+
+            int selected = teamList.getSelectedIndex();
+
+            teamNameReader set = new teamNameReader();
+            ArrayList<TeamObject> read = null;
+            try {
+                read = set.readTeamNameObject();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            editTeamsFrame frame = null;
+            try {
+                frame = new editTeamsFrame(read.get(selected).getTeamNumb(), read.get(selected).getTeamLetter());
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            frame.setSize(this.getWidth(), getHeight());
+            frame.setLocation(this.getX(), this.getY());
+            frame.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select a Team From the List", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_editTeamButtonActionPerformed
 
     /**

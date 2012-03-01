@@ -4,7 +4,7 @@
  */
 package ActionPacks;
 
-import Objects.TeamObject;
+import Objects.MatchObject;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,14 +16,14 @@ import java.util.logging.Logger;
  *
  * @author jonathanleitschuh
  */
-public class teamNameReader {
-    public ArrayList<TeamObject> readTeamNameObject() throws ClassNotFoundException{
+public class eventNameReader {
+    public ArrayList<MatchObject> readEventNameObject() throws ClassNotFoundException{
         
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
-            ArrayList<TeamObject> team = (ArrayList<TeamObject>)ois.readObject();
-            return team;
+            ois = new ObjectInputStream(new FileInputStream("src/Data/eventData/events/MASTEREVENTLIST.dat"));
+            ArrayList<MatchObject> match = (ArrayList<MatchObject>)ois.readObject();
+            return match;
         } catch (IOException ex) {
             Logger.getLogger(teamReader.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getMessage());

@@ -20,6 +20,11 @@ public class MatchAllianceObject implements Serializable{
         teamone.setScore(SCORE);
         teamtwo.setScore(SCORE);
     }
+    public void setScore(String SCORE){
+        this.score = Integer.parseInt(SCORE);
+        teamone.setScore(Integer.parseInt(SCORE));
+        teamtwo.setScore(Integer.parseInt(SCORE));
+    }
     public int getScore(){
         return score;
     }
