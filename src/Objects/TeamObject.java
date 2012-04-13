@@ -17,7 +17,7 @@ import java.io.Serializable;
  * object in a match use MatchTeamObject
  * 
  */
-public class TeamObject extends TeamLabelObject implements Serializable{
+public class TeamObject extends TeamLabelObject implements Serializable, Cloneable{
 
     private int idnumber;
     private String id;
@@ -25,6 +25,16 @@ public class TeamObject extends TeamLabelObject implements Serializable{
     private String location;
     private String robotname;
     private String spacereturnlength;
+    
+    public void setTeamObject(TeamObject t){
+        this.setTeamNumber(t.getTeamNumber());
+        this.setTeamNumber(t.getTeamNumb());
+        this.setTeamLetter(t.getTeamLetter());
+        idnumber = getIdNumber();
+        teamname = getTeamName();
+        location = getLocation();
+        robotname= getRobotName();
+    }
 
     public String getId() {
         return id;
@@ -65,6 +75,10 @@ public class TeamObject extends TeamLabelObject implements Serializable{
     public void setRobotName(String ROBOTNAME) {
         this.robotname = ROBOTNAME;
     }
+    
+    public String getTeamShortListNumb(){
+        return (getTeamNumb() + " " + getTeamLetter() + " " + teamname);
+    }
 
     public String getTeamList() {
         if (getTeamNumb().length() == 1) {
@@ -79,6 +93,9 @@ public class TeamObject extends TeamLabelObject implements Serializable{
             spacereturnlength = "               ";
         }
         return (getIdNumber()+1) + "              " + (getTeamNumb()) + (getTeamLetter()) + spacereturnlength + teamname;
+    }
+    public String getTeamShortList(){
+        return (teamname + " " + getTeamNumb() + getTeamLetter());
     }
 
     @Override

@@ -4,7 +4,7 @@
  */
 package ActionPacks;
 
-import Objects.TeamObject;
+import Objects.MatchObject;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,10 +17,10 @@ import java.util.logging.Logger;
  *
  * @author jonathanleitschuh
  */
-public class teamNameWriter {
+public class matchWriter {
     private int h = 0;
 
-    private int placeFinder(int ID, ArrayList<TeamObject> count) {
+    private int placeFinder(int ID, ArrayList<MatchObject> count) {
         
         int size = (count.size()-1);
         
@@ -31,7 +31,7 @@ public class teamNameWriter {
             try {
                 for (int c = 0; c <= size; c++) {
                     
-                    if ((count.get(c).getIdNumber()) == ID) {
+                    if ((count.get(c).getMatchNumber()) == ID) {
                         this.h = c;
                     }
                 }
@@ -45,16 +45,16 @@ public class teamNameWriter {
         }
     }
     
-    public void replaceTeamObject(ArrayList<TeamObject> NAME) throws FileNotFoundException {
+    public void replaceMatchObject(ArrayList<MatchObject> NAME) throws FileNotFoundException {
 
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
-            Logger.getLogger(teamNameWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(matchWriter.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 oos.close();
@@ -64,17 +64,9 @@ public class teamNameWriter {
         }
     }
 
-    public void writeTeamObject(String id, String teamName, String teamNumber, String teamLetter,
-            String Location, String RobotName, ArrayList<TeamObject> NAME) throws FileNotFoundException {
+    public void writeMatchObject(MatchObject NEW, ArrayList<MatchObject> NAME) throws FileNotFoundException {
         // Create a new TeamLabelObject and add the elements to it.
 
-        TeamObject NEW = new TeamObject();
-        NEW.setId(id);
-        NEW.setTeamName(teamName);
-        NEW.setTeamNumber(teamNumber);
-        NEW.setTeamLetter(teamLetter);
-        NEW.setLocation(Location);
-        NEW.setRobotName(RobotName);
 
         //Add this element to the ArrayList Object
 
@@ -83,11 +75,11 @@ public class teamNameWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
-            Logger.getLogger(teamNameWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(matchWriter.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 oos.close();
@@ -99,30 +91,24 @@ public class teamNameWriter {
 
     }
 
-    public void writeOldTeamObject(String idNUMBER, String teamName, String teamNumber, String teamLetter,
-            String Location, String RobotName, ArrayList<TeamObject> NAME) throws FileNotFoundException {
+    public void writeOldMatchObject(MatchObject NEW, ArrayList<MatchObject> NAME) throws FileNotFoundException {
         // Create a new TeamLabelObject and add the elements to it.
 
-        TeamObject NEW = new TeamObject();
-        NEW.setId(idNUMBER);
-        NEW.setTeamName(teamName);
-        NEW.setTeamNumber(teamNumber);
-        NEW.setTeamLetter(teamLetter);
-        NEW.setLocation(Location);
-        NEW.setRobotName(RobotName);
+
         //Add this element to the ArrayList Object
-        int thisId = placeFinder(NEW.getIdNumber(), NAME);
+        int thisId = placeFinder(NEW.getMatchNumber(), NAME);
+        
         NAME.set(thisId, NEW);
         
         
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
-            Logger.getLogger(teamNameWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(matchWriter.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 oos.close();

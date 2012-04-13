@@ -15,6 +15,7 @@ public class MatchAllianceObject implements Serializable{
     public MatchTeamObject teamtwo;
     private int score;
     
+    
     public void setScore(int SCORE){
         this.score = SCORE;
         teamone.setScore(SCORE);

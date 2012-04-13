@@ -15,6 +15,12 @@ public class TeamLabelObject implements Serializable{
     private int teamnumber;
     private String teamnumb;
     private String teamletter;
+    
+    public void setTeamLabelObject(TeamLabelObject k){
+        teamnumber = k.getTeamNumber();
+        teamnumb = k.getTeamNumb();
+        teamletter = k.getTeamLetter();
+    }
 
     public void setTeamNumber(int TEAMNUMBER) {
         this.teamnumber = TEAMNUMBER;

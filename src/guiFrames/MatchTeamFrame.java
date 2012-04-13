@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package guiFrames;
+import guiFrames.MatchTeamSubFrame;
 
 import Objects.MatchObject;
 
@@ -29,27 +30,26 @@ public class MatchTeamFrame extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         teams = new javax.swing.JPanel();
         red = new javax.swing.JPanel();
-        oneR = new guiFrames.MatchTeamSubFrame();
-        twoR = new guiFrames.MatchTeamSubFrame();
         redTeamScoreLabel = new javax.swing.JLabel();
         redTeamScore = new javax.swing.JTextField();
+        redIsolation =  new MatchTeamSubFrame();
+        redInteraction = new MatchTeamSubFrame();
         blue = new javax.swing.JPanel();
-        oneB = new guiFrames.MatchTeamSubFrame();
-        twoB = new guiFrames.MatchTeamSubFrame();
         blueTeamScoreLabel = new javax.swing.JLabel();
         blueTeamScore = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        blueIsolation = new MatchTeamSubFrame();
+        blueInteraction = new MatchTeamSubFrame();
         backButton = new javax.swing.JButton();
         saveAndCloseButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 900));
-        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
-        getContentPane().setLayout(layout);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         teams.setBorder(javax.swing.BorderFactory.createTitledBorder("Match Info"));
         java.awt.GridBagLayout teamsLayout = new java.awt.GridBagLayout();
@@ -63,29 +63,16 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         redLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         red.setLayout(redLayout);
 
-        oneR.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        red.add(oneR, gridBagConstraints);
-
-        twoR.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        red.add(twoR, gridBagConstraints);
-
         redTeamScoreLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         redTeamScoreLabel.setText("Red Score:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 30;
         red.add(redTeamScoreLabel, gridBagConstraints);
 
-        redTeamScore.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        redTeamScore.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -93,6 +80,24 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         red.add(redTeamScore, gridBagConstraints);
+
+        redIsolation.setBorder(javax.swing.BorderFactory.createTitledBorder("Isolation"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        red.add(redIsolation, gridBagConstraints);
+
+        redInteraction.setBorder(javax.swing.BorderFactory.createTitledBorder("Interaction"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        red.add(redInteraction, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -106,20 +111,6 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         blueLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         blue.setLayout(blueLayout);
 
-        oneB.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        blue.add(oneB, gridBagConstraints);
-
-        twoB.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        blue.add(twoB, gridBagConstraints);
-
         blueTeamScoreLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         blueTeamScoreLabel.setText("Blue Score:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -128,7 +119,7 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         gridBagConstraints.ipady = 30;
         blue.add(blueTeamScoreLabel, gridBagConstraints);
 
-        blueTeamScore.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        blueTeamScore.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -136,6 +127,24 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         blue.add(blueTeamScore, gridBagConstraints);
+
+        blueIsolation.setBorder(javax.swing.BorderFactory.createTitledBorder("Isolation"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        blue.add(blueIsolation, gridBagConstraints);
+
+        blueInteraction.setBorder(javax.swing.BorderFactory.createTitledBorder("Interaction"));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        blue.add(blueInteraction, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -147,19 +156,13 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
-        getContentPane().add(teams, gridBagConstraints);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        getContentPane().add(jComboBox1, gridBagConstraints);
+        jPanel1.add(teams, gridBagConstraints);
 
         backButton.setText("<< Back");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
-        getContentPane().add(backButton, gridBagConstraints);
+        jPanel1.add(backButton, gridBagConstraints);
 
         saveAndCloseButton.setText("Save and Close");
         saveAndCloseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +174,17 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        getContentPane().add(saveAndCloseButton, gridBagConstraints);
+        jPanel1.add(saveAndCloseButton, gridBagConstraints);
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(jScrollPane1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,21 +192,16 @@ public class MatchTeamFrame extends javax.swing.JFrame {
     private void saveAndCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAndCloseButtonActionPerformed
         // TODO add your handling code here:
         MatchObject match = new MatchObject();
-        match.red.setScore(redTeamScore.getText());
-        match.blue.setScore(blueTeamScore.getText());
+        MatchTeamSubFrame redIso = (MatchTeamSubFrame)redIsolation;
         
-        match.red.teamone.setPrimaryScore(oneR.primaryScorer.isSelected());
-        match.red.teamtwo.setPrimaryScore(twoR.primaryScorer.isSelected());
+        System.out.println("I got this far");
+        System.out.println(redIso.getMatchTeam().getAutonomousScore());
         
-        match.blue.teamone.setPrimaryScore(oneB.primaryScorer.isSelected());
-        match.blue.teamtwo.setPrimaryScore(twoB.primaryScorer.isSelected());
+        //match.red.teamone.setTeamObject(redIso.getMatchTeam());
         
-        match.red.teamone.setAutonomous(oneR.autonomous.isSelected());
-        match.red.teamtwo.setAutonomous(twoR.autonomous.isSelected());
+        System.out.println("I got this far 2");
         
-        match.blue.teamone.setAutonomous(oneB.autonomous.isSelected());
-        match.blue.teamtwo.setAutonomous(twoB.autonomous.isSelected());
-        
+        //System.out.println(match.red.teamone.getComment());
         
     }//GEN-LAST:event_saveAndCloseButtonActionPerformed
 
@@ -239,17 +247,18 @@ public class MatchTeamFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel blue;
+    private javax.swing.JPanel blueInteraction;
+    private javax.swing.JPanel blueIsolation;
     private javax.swing.JTextField blueTeamScore;
     private javax.swing.JLabel blueTeamScoreLabel;
-    private javax.swing.JComboBox jComboBox1;
-    private guiFrames.MatchTeamSubFrame oneB;
-    private guiFrames.MatchTeamSubFrame oneR;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel red;
+    private javax.swing.JPanel redInteraction;
+    private javax.swing.JPanel redIsolation;
     private javax.swing.JTextField redTeamScore;
     private javax.swing.JLabel redTeamScoreLabel;
     private javax.swing.JButton saveAndCloseButton;
     private javax.swing.JPanel teams;
-    private guiFrames.MatchTeamSubFrame twoB;
-    private guiFrames.MatchTeamSubFrame twoR;
     // End of variables declaration//GEN-END:variables
 }

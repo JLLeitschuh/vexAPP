@@ -10,13 +10,14 @@ import java.io.Serializable;
  *
  * @author jonathanleitschuh
  */
-public class MatchObject implements Serializable {
+public class MatchObject implements Serializable, Cloneable {
+
     private int matchnumber;
     private String matchnumb;
     private int score;
     public MatchAllianceObject red;
     public MatchAllianceObject blue;
-    
+
     public void setMatchNumber(int MATCHNUMBER) {
         this.matchnumber = MATCHNUMBER;
         this.matchnumb = Integer.toString(MATCHNUMBER);
@@ -29,5 +30,15 @@ public class MatchObject implements Serializable {
 
     public int getMatchNumber() {
         return matchnumber;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
+
     }
 }

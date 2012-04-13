@@ -34,6 +34,7 @@ public class startFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         TeamsEditButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
@@ -83,16 +84,22 @@ public class startFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
         startMainFrame.add(TeamsEditButton, gridBagConstraints);
 
+        jLabel2.setText("<html>\n<center>THIS APLICATION CURRENTLY ONLY SUPPORTS ONE MEET.\n<br>\nTHIS IS BECAUSE OF THE TIME CONSTRAINTS OF MAKING THIS APP");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        startMainFrame.add(jLabel2, gridBagConstraints);
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 601, Short.MAX_VALUE)
+            .add(0, 787, Short.MAX_VALUE)
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
-                    .add(0, 0, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
-                    .add(0, 0, Short.MAX_VALUE)))
+                    .add(0, 123, Short.MAX_VALUE)
+                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                    .add(0, 124, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -171,6 +178,7 @@ public class startFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel startMainFrame;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,7 @@ package guiFrames;
  * @author jonathanleitschuh
  */
 import ActionPacks.teamNameReader;
+import ActionPacks.teamNameWriter;
 import Objects.TeamObject;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -152,6 +153,11 @@ public class teamsListFrame extends javax.swing.JFrame {
 
         deleteTeamButton.setText("Delete");
         deleteTeamButton.setToolTipText("Delete this team.");
+        deleteTeamButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteTeamButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
@@ -195,7 +201,7 @@ public class teamsListFrame extends javax.swing.JFrame {
     private void editTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeamButtonActionPerformed
         // TODO add your handling code here:
         try {
-
+            //Get the selected team from the list
             int selected = teamList.getSelectedIndex();
 
             teamNameReader set = new teamNameReader();
@@ -220,6 +226,33 @@ public class teamsListFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please Select a Team From the List", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_editTeamButtonActionPerformed
+
+    private void deleteTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTeamButtonActionPerformed
+        try {
+            //Get the selected team from the list
+            int selected = teamList.getSelectedIndex();
+            teamNameReader set = new teamNameReader();
+            ArrayList<TeamObject> read = null;
+            try {
+                read = set.readTeamNameObject();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            read.remove(selected);
+            
+            teamNameWriter write = new teamNameWriter();
+            write.replaceTeamObject(read);
+            
+            teamsListFrame frame = new teamsListFrame();
+            frame.setSize(this.getWidth(), getHeight());
+            frame.setLocation(this.getX(), this.getY());
+            frame.setVisible(true);
+            this.dispose();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select a Team From the List", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_deleteTeamButtonActionPerformed
 
     /**
      * @param args the command line arguments
