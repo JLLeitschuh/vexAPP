@@ -24,10 +24,11 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
     private int length;
 
     public MatchTeamObject getMatchTeam() {
+
         MatchTeamObject team = new MatchTeamObject();
         try {
             //Get the selected team from the list
-            
+
             int selected = teamList.getSelectedIndex();
 
             teamNameReader set = new teamNameReader();
@@ -42,8 +43,8 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
             team.setTeamName(read.get(selected).getTeamName());
             team.setTeamNumber(read.get(selected).getTeamNumber());
             team.setTeamLetter(read.get(selected).getTeamLetter());
-            
-            
+
+
             team.setAutonomous(autonomous.isSelected());
             team.setAutonomousScore(Integer.parseInt(autonomousScore.getText()));
             team.setBatteryFail(batteryFailProblem.isSelected());
@@ -86,48 +87,29 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
         wireUnplugedProblem.setSelected(teamSet.getWireUnpluged());
 
     }
-/*
-    private DefaultComboBoxModel getListTeams() {
-        DefaultComboBoxModel listModelTeams = new DefaultComboBoxModel();
-        teamNameReader read = new teamNameReader();
-        ArrayList<TeamObject> readConfig = null;
-        try {
-            readConfig = read.readTeamNameObject();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listModelTeams.addElement("- Choose Team -");
-        for (TeamObject item : readConfig) {
-            listModelTeams.addElement(item.getTeamShortList());
-        }
-        return listModelTeams;
-    }
+    /*
+     * private DefaultComboBoxModel getListTeams() { DefaultComboBoxModel
+     * listModelTeams = new DefaultComboBoxModel(); teamNameReader read = new
+     * teamNameReader(); ArrayList<TeamObject> readConfig = null; try {
+     * readConfig = read.readTeamNameObject(); } catch (ClassNotFoundException
+     * ex) { Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE,
+     * null, ex); } listModelTeams.addElement("- Choose Team -"); for
+     * (TeamObject item : readConfig) {
+     * listModelTeams.addElement(item.getTeamShortList()); } return
+     * listModelTeams; }
+     *
+     * public String[] getListTeamsString() { teamNameReader read = new
+     * teamNameReader(); ArrayList<TeamObject> readConfig = null; try {
+     * read.readTeamNameObject(); } catch (ClassNotFoundException ex) {
+     * Logger.getLogger(MatchTeamSubFrame.class.getName()).log(Level.SEVERE,
+     * null, ex); } int size = 0; try { readConfig = read.readTeamNameObject();
+     * size = readConfig.size(); } catch (ClassNotFoundException ex) {
+     * Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null,
+     * ex); } String[] list = new String[size]; int i = 0; for (TeamObject item
+     * : readConfig) { list[i] = (item.getTeamShortList()); i++; }
+     * System.out.println("Sucessful return " + list); return list; }
+     */
 
-    public String[] getListTeamsString() {
-        teamNameReader read = new teamNameReader();
-        ArrayList<TeamObject> readConfig = null;
-        try {
-            read.readTeamNameObject();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MatchTeamSubFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        int size = 0;
-        try {
-            readConfig = read.readTeamNameObject();
-            size = readConfig.size();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String[] list = new String[size];
-        int i = 0;
-        for (TeamObject item : readConfig) {
-            list[i] = (item.getTeamShortList());
-            i++;
-        }
-        System.out.println("Sucessful return " + list);
-        return list;
-    }
-*/
     /**
      * Creates new form MatchTeamSubFrame
      */
@@ -194,16 +176,18 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
             teamSelectionPanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0};
             teamSelectionPanel.setLayout(teamSelectionPanelLayout);
 
-            jScrollPane3.setMaximumSize(new java.awt.Dimension(100, 0));
-            jScrollPane3.setMinimumSize(new java.awt.Dimension(100, 10));
-            jScrollPane3.setPreferredSize(new java.awt.Dimension(100, 30));
+            jScrollPane3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+            jScrollPane3.setMaximumSize(new java.awt.Dimension(100, 25));
+            jScrollPane3.setMinimumSize(new java.awt.Dimension(100, 25));
+            jScrollPane3.setPreferredSize(new java.awt.Dimension(100, 25));
 
             teamList.setModel(listModelTeams);
             teamList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-            teamList.setMaximumSize(new java.awt.Dimension(100, 50));
-            teamList.setPreferredSize(new java.awt.Dimension(100, 20));
-            teamList.setSize(new java.awt.Dimension(100, 20));
-            teamList.setVisibleRowCount(1);
+            teamList.setBounds(new java.awt.Rectangle(0, 0, 100, 5));
+            teamList.setMaximumSize(new java.awt.Dimension(100, 7000));
+            teamList.setMinimumSize(new java.awt.Dimension(100, 0));
+            teamList.setPreferredSize(new java.awt.Dimension(100, 100));
+            teamList.setVisibleRowCount(30);
             jScrollPane3.setViewportView(teamList);
         }catch(Exception e){
         }
@@ -248,6 +232,11 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
         problemsPanel.add(vexNetFailProblem, gridBagConstraints);
 
         matchMissedProblem.setText("Missed Match");
+        matchMissedProblem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matchMissedProblemActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -255,6 +244,11 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
         problemsPanel.add(matchMissedProblem, gridBagConstraints);
 
         doublerNegatorEarlyProblem.setText("Doubler/Negator early");
+        doublerNegatorEarlyProblem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doublerNegatorEarlyProblemActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -309,10 +303,16 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
         qualitiesPanel.add(autonomousScoreLabel, gridBagConstraints);
 
         autonomousScore.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        autonomousScore.setText("0");
+        autonomousScore.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                autonomousScoreFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 70;
+        gridBagConstraints.ipadx = 50;
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         qualitiesPanel.add(autonomousScore, gridBagConstraints);
@@ -402,6 +402,40 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
     private void disqualifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disqualifiedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_disqualifiedActionPerformed
+
+    private void doublerNegatorEarlyProblemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doublerNegatorEarlyProblemActionPerformed
+        // TODO add your handling code here:
+        if (doublerNegatorEarlyProblem.isSelected()) {
+            disqualified.setSelected(true);
+        }
+    }//GEN-LAST:event_doublerNegatorEarlyProblemActionPerformed
+
+    private void matchMissedProblemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchMissedProblemActionPerformed
+        // TODO add your handling code here:
+        if (matchMissedProblem.isSelected())
+        {
+        disqualified.setSelected(true);
+        }
+    }//GEN-LAST:event_matchMissedProblemActionPerformed
+
+    private void autonomousScoreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_autonomousScoreFocusLost
+        // TODO add your handling code here:
+        try{
+            Integer.parseInt(autonomousScore.getText());
+        }
+        catch(Exception e){
+            autonomousScore.setText("0");
+        }
+        if((Integer.parseInt(autonomousScore.getText())) == 0 ){
+            
+        }else if((Integer.parseInt(autonomousScore.getText()))>0){
+            autonomous.setSelected(true);
+        }else if((Integer.parseInt(autonomousScore.getText()))<0){
+            autonomousScore.setText("0");
+        }
+            
+    }//GEN-LAST:event_autonomousScoreFocusLost
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox autonomous;
     private javax.swing.JTextField autonomousScore;

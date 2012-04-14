@@ -29,7 +29,34 @@ public class MatchTeamObject extends TeamObject implements Serializable, Cloneab
     private int score;
     private String comment;
 
-
+    public void setMatchTeamObject(MatchTeamObject t){
+        System.out.println("Passed into object");
+        this.setTeamNumber(t.getTeamNumber());
+        this.setTeamNumber(t.getTeamNumb());
+        this.setTeamLetter(t.getTeamLetter());
+        this.setId(t.getIdNumber());
+        this.setTeamName(t.getTeamName());
+        this.setLocation(t.getLocation());
+        this.setRobotName(t.getRobotName());
+        autonomous = t.getAutonomous();
+        batteryfail= t.getBatteryFail();
+        disqualified=t.getDisqualified();
+        doublernegatorearly=t.getDoublerNegatorEarly();
+        doublerused=t.getDoublerUsed();
+        entanglement=t.getEntanglement();
+        matchmissed=t.getMatchMissed();
+        negatorused=t.getNegatorUsed();
+        otherproblem=t.getNegatorUsed();
+        poorrobot = t.getPoorRobot();
+        superiorrobot=t.getSuperiorRobot();
+        vexnetfail = t.getVexNetFail();
+        wireUnpluged=t.getWireUnpluged();
+        autonomousscore=t.getAutonomousScore();
+        score = t.getScore();
+        comment = t.getComment();
+        System.out.println("This is out!");
+    }
+    
     public Boolean getDisqualified() {
         return disqualified;
     }

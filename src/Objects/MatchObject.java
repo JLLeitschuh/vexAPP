@@ -15,9 +15,11 @@ public class MatchObject implements Serializable, Cloneable {
     private int matchnumber;
     private String matchnumb;
     private int score;
-    public MatchAllianceObject red;
-    public MatchAllianceObject blue;
-
+    public MatchAllianceObject red = new MatchAllianceObject();
+    public MatchAllianceObject blue = new MatchAllianceObject();
+    
+    
+    
     public void setMatchNumber(int MATCHNUMBER) {
         this.matchnumber = MATCHNUMBER;
         this.matchnumb = Integer.toString(MATCHNUMBER);

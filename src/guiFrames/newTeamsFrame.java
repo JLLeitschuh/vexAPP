@@ -49,12 +49,15 @@ public class newTeamsFrame extends javax.swing.JFrame {
         teamLetter = new javax.swing.JTextField();
         teamLetterLabel = new javax.swing.JLabel();
         createTeamButton = new javax.swing.JButton();
+        commentPannel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        commentBox = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         backButton.setText("<< Back");
@@ -66,7 +69,7 @@ public class newTeamsFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 8;
         getContentPane().add(backButton, gridBagConstraints);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Create New Team"));
@@ -162,9 +165,32 @@ public class newTeamsFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         getContentPane().add(createTeamButton, gridBagConstraints);
+
+        commentPannel.setBorder(javax.swing.BorderFactory.createTitledBorder("Comments"));
+        commentPannel.setLayout(new java.awt.GridBagLayout());
+
+        commentBox.setColumns(20);
+        commentBox.setRows(5);
+        jScrollPane2.setViewportView(commentBox);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 550;
+        gridBagConstraints.ipady = 100;
+        commentPannel.add(jScrollPane2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipady = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        getContentPane().add(commentPannel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,7 +234,7 @@ public class newTeamsFrame extends javax.swing.JFrame {
                 // Write the Array list file back
                 teamNameWriter write = new teamNameWriter();
                 write.writeTeamObject(Integer.toString(newid), teamName.getText(), teamNumber.getText(), 
-                        teamLetter.getText().toUpperCase(), robotName.getText(), location.getText(), READ);
+                        teamLetter.getText().toUpperCase(), robotName.getText(), location.getText(), commentBox.getText(), READ);
                 
                 // Close the window here.
                 teamsListFrame teams = new teamsListFrame();
@@ -261,8 +287,11 @@ public class newTeamsFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JTextArea commentBox;
+    private javax.swing.JPanel commentPannel;
     private javax.swing.JButton createTeamButton;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField location;
     private javax.swing.JLabel locationLabel;
     private javax.swing.JTextField robotName;

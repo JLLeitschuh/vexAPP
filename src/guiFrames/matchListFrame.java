@@ -4,6 +4,12 @@
  */
 package guiFrames;
 
+import ActionPacks.matchReader;
+import Objects.MatchObject;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jonathanleitschuh
@@ -15,6 +21,22 @@ public class matchListFrame extends javax.swing.JFrame {
      */
     public matchListFrame() {
         initComponents();
+        /*
+        matchReader read = new matchReader();
+        ArrayList<MatchObject> readConfig = null;
+        try {
+            readConfig = read.readMatchObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for (MatchObject item : readConfig) {
+            {item.getMatchNumber(), item.red.interaction.getTeamShortList(), item.red.isolation.getTeamShortList(),
+            item.red.getScore(), item.blue.interaction.getTeamShortList(), item.blue.isolation.getTeamShortList(),
+            item.blue.getScore()}
+            
+        }
+        */
+        
     }
 
     /**
@@ -46,29 +68,16 @@ public class matchListFrame extends javax.swing.JFrame {
         matchTableLayout.rowHeights = new int[] {0, 5, 0, 5, 0};
         matchTable.setLayout(matchTableLayout);
 
-        matchList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Match", "Red Team 1", "Red Team 2", "Red Score", "Blue Team 1", "Blue Team 2", "Blue Score"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        matchReader read = new matchReader();
+        ArrayList<MatchObject> readConfig = null;
+        try {
+            readConfig = read.readMatchObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        matchList.setModel(new javax.swing.table.DefaultTableModel()
+        );
+        //matchList.addRow(new String[]{});
         matchList.getTableHeader().setReorderingAllowed(false);
         matchListScroll.setViewportView(matchList);
         matchList.getColumnModel().getColumn(0).setResizable(false);
@@ -89,7 +98,7 @@ public class matchListFrame extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 5;
         getContentPane().add(matchTable, gridBagConstraints);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("New Match");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 2;
@@ -97,13 +106,13 @@ public class matchListFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(100, 0, 0, 0);
         getContentPane().add(jButton1, gridBagConstraints);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Edit Match");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 4;
         getContentPane().add(jButton2, gridBagConstraints);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Remove Last");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;

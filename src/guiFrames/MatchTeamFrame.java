@@ -3,9 +3,12 @@
  * and open the template in the editor.
  */
 package guiFrames;
-import guiFrames.MatchTeamSubFrame;
-
+import ActionPacks.matchWriter;
 import Objects.MatchObject;
+import Objects.MatchTeamObject;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -192,16 +195,31 @@ public class MatchTeamFrame extends javax.swing.JFrame {
     private void saveAndCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAndCloseButtonActionPerformed
         // TODO add your handling code here:
         MatchObject match = new MatchObject();
-        MatchTeamSubFrame redIso = (MatchTeamSubFrame)redIsolation;
         
-        System.out.println("I got this far");
-        System.out.println(redIso.getMatchTeam().getAutonomousScore());
+        MatchTeamSubFrame redIso = (MatchTeamSubFrame)redIsolation;       
+        match.red.isolation.setMatchTeamObject(redIso.getMatchTeam());
         
-        //match.red.teamone.setTeamObject(redIso.getMatchTeam());
+        MatchTeamSubFrame redInter = (MatchTeamSubFrame)redInteraction;       
+        match.red.interaction.setMatchTeamObject(redInter.getMatchTeam());
         
-        System.out.println("I got this far 2");
+        MatchTeamSubFrame blueIso = (MatchTeamSubFrame)blueIsolation;       
+        match.blue.isolation.setMatchTeamObject(blueIso.getMatchTeam());
         
-        //System.out.println(match.red.teamone.getComment());
+        MatchTeamSubFrame blueInter = (MatchTeamSubFrame)blueInteraction;       
+        match.blue.interaction.setMatchTeamObject(blueInter.getMatchTeam());
+        
+        match.red.setScore(Integer.parseInt(redTeamScore.getText()));
+        match.blue.setScore(Integer.parseInt(blueTeamScore.getText()));
+        
+        matchWriter write = new matchWriter();
+        try {
+            write.writeMatchObjectSimple(match);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MatchTeamFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        this.dispose();
+        
         
     }//GEN-LAST:event_saveAndCloseButtonActionPerformed
 

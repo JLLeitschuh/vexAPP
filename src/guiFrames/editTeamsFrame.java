@@ -25,6 +25,7 @@ public class editTeamsFrame extends javax.swing.JFrame {
     private String teamNamE;
     private String locatioN;
     private String robotNamE;
+    private String comment;
 
     /**
      * Creates new form editTeamsFrame
@@ -39,6 +40,7 @@ public class editTeamsFrame extends javax.swing.JFrame {
         teamNamE = read.getTeamName();
         locatioN = read.getLocation();
         robotNamE = read.getRobotName();
+        comment = read.getTeamComment();
         
         initComponents();
     }
@@ -66,12 +68,15 @@ public class editTeamsFrame extends javax.swing.JFrame {
         teamLetterLabel = new javax.swing.JLabel();
         teamLetter = new javax.swing.JTextField();
         javax.swing.JButton saveCloseButton = new javax.swing.JButton();
+        commentPannel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        commentBox = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         backButton.setText("<< Back");
@@ -83,7 +88,7 @@ public class editTeamsFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         getContentPane().add(backButton, gridBagConstraints);
 
         editTeamPreferences.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Team Preferences"));
@@ -172,7 +177,7 @@ public class editTeamsFrame extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
@@ -186,9 +191,33 @@ public class editTeamsFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         getContentPane().add(saveCloseButton, gridBagConstraints);
+
+        commentPannel.setBorder(javax.swing.BorderFactory.createTitledBorder("Comments"));
+        commentPannel.setLayout(new java.awt.GridBagLayout());
+
+        commentBox.setColumns(20);
+        commentBox.setRows(5);
+        commentBox.setText(comment);
+        jScrollPane2.setViewportView(commentBox);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 550;
+        gridBagConstraints.ipady = 100;
+        commentPannel.add(jScrollPane2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.ipady = 15;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        getContentPane().add(commentPannel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,6 +250,7 @@ public class editTeamsFrame extends javax.swing.JFrame {
                 team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
                 team.setRobotName(robotName.getText());
                 team.setLocation(location.getText());
+                team.setTeamComment(commentBox.getText());
                 
                 
                 // Write a new file that contains the team data
@@ -236,7 +266,7 @@ public class editTeamsFrame extends javax.swing.JFrame {
                 // Write the Array list file back
                 teamNameWriter write = new teamNameWriter();
                 write.writeOldTeamObject(idNumB, teamName.getText(), teamNumber.getText(), 
-                        teamLetter.getText().toUpperCase(), robotName.getText(), location.getText(), READ);
+                        teamLetter.getText().toUpperCase(), robotName.getText(), location.getText(), commentBox.getText(), READ);
                 
 
                 // Close the window here.
@@ -290,7 +320,10 @@ public class editTeamsFrame extends javax.swing.JFrame {
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JTextArea commentBox;
+    private javax.swing.JPanel commentPannel;
     private javax.swing.JPanel editTeamPreferences;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField location;
     private javax.swing.JLabel locationLabel;
     private javax.swing.JTextField robotName;

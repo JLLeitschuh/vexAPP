@@ -65,7 +65,7 @@ public class teamNameWriter {
     }
 
     public void writeTeamObject(String id, String teamName, String teamNumber, String teamLetter,
-            String Location, String RobotName, ArrayList<TeamObject> NAME) throws FileNotFoundException {
+            String Location, String RobotName, String Comment, ArrayList<TeamObject> NAME) throws FileNotFoundException {
         // Create a new TeamLabelObject and add the elements to it.
 
         TeamObject NEW = new TeamObject();
@@ -75,6 +75,7 @@ public class teamNameWriter {
         NEW.setTeamLetter(teamLetter);
         NEW.setLocation(Location);
         NEW.setRobotName(RobotName);
+        NEW.setTeamComment(Comment);
 
         //Add this element to the ArrayList Object
 
@@ -100,7 +101,7 @@ public class teamNameWriter {
     }
 
     public void writeOldTeamObject(String idNUMBER, String teamName, String teamNumber, String teamLetter,
-            String Location, String RobotName, ArrayList<TeamObject> NAME) throws FileNotFoundException {
+            String Location, String RobotName, String Comment, ArrayList<TeamObject> NAME) throws FileNotFoundException {
         // Create a new TeamLabelObject and add the elements to it.
 
         TeamObject NEW = new TeamObject();
@@ -110,6 +111,7 @@ public class teamNameWriter {
         NEW.setTeamLetter(teamLetter);
         NEW.setLocation(Location);
         NEW.setRobotName(RobotName);
+        NEW.setTeamComment(Comment);
         //Add this element to the ArrayList Object
         int thisId = placeFinder(NEW.getIdNumber(), NAME);
         NAME.set(thisId, NEW);

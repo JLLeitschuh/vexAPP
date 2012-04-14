@@ -73,15 +73,19 @@ public class teamsListFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
 
         teamListFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
+        teamListFrame.setMaximumSize(new java.awt.Dimension(597, 2147483647));
+        teamListFrame.setPreferredSize(new java.awt.Dimension(597, 300));
         java.awt.GridBagLayout teamListFrameLayout = new java.awt.GridBagLayout();
         teamListFrameLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
-        teamListFrameLayout.rowHeights = new int[] {0, 5, 0, 5, 0};
+        teamListFrameLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0};
         teamListFrame.setLayout(teamListFrameLayout);
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(260, 160));
 
         teamList.setModel(listModelTeams);
         teamList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         teamList.setToolTipText("Select");
-        teamList.setMaximumSize(new java.awt.Dimension(39, 120));
+        teamList.setMaximumSize(new java.awt.Dimension(39, 500));
         teamList.setMinimumSize(new java.awt.Dimension(39, 120));
         teamList.setPreferredSize(new java.awt.Dimension(39, 120));
         jScrollPane1.setViewportView(teamList);
@@ -121,7 +125,7 @@ public class teamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridheight = 9;
         gridBagConstraints.ipadx = 20;
-        gridBagConstraints.ipady = 117;
+        gridBagConstraints.ipady = 90;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(teamListFrame, gridBagConstraints);

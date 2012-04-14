@@ -24,16 +24,26 @@ public class TeamObject extends TeamLabelObject implements Serializable, Cloneab
     private String teamname;
     private String location;
     private String robotname;
+    private String comment;
     private String spacereturnlength;
     
     public void setTeamObject(TeamObject t){
         this.setTeamNumber(t.getTeamNumber());
         this.setTeamNumber(t.getTeamNumb());
         this.setTeamLetter(t.getTeamLetter());
-        idnumber = getIdNumber();
-        teamname = getTeamName();
-        location = getLocation();
-        robotname= getRobotName();
+        idnumber = t.getIdNumber();
+        teamname = t.getTeamName();
+        location = t.getLocation();
+        robotname= t.getRobotName();
+        comment = t.getTeamComment();
+    }
+    
+    public String getTeamComment() {
+        return comment;
+    }
+
+    public void setTeamComment(String Comment) {
+        this.comment = Comment;
     }
 
     public String getId() {

@@ -17,5 +17,7 @@ public class testThread {
         // TODO code application logic here
         MatchTeamFrame frame = new MatchTeamFrame();
         frame.setVisible(true);
+        
+        
     }
 }

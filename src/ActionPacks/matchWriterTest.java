@@ -4,6 +4,7 @@
  */
 package ActionPacks;
 
+import Objects.MatchObject;
 import Objects.TeamObject;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -14,38 +15,25 @@ import java.util.ArrayList;
  */
 
 //This task was run in order to create the Array list file.
-public class writerTest {
+public class matchWriterTest {
     private String iD = "0";
     private String teaMnamE = "Aperture Science";
     private String teaMnumbeR = "4886";
     private String teaMletteR = "A";
     private String roboTnamE = "The Chabot II";
     private String locatioN = "Thetford, Vermont";
-    private String comment = "We are the creator of this application!";
     
     
     
     public void run() throws FileNotFoundException{
-        ArrayList<TeamObject> NAME = new ArrayList<TeamObject>();
+        ArrayList<MatchObject> NAME = new ArrayList<MatchObject>();
+        matchWriter write = new matchWriter();
+        write.replaceMatchObject(NAME);
         
-        teamNameWriter write = new teamNameWriter();
-        write.writeTeamObject(iD, teaMnamE, teaMnumbeR, teaMletteR, roboTnamE, locatioN, comment, NAME);
-        
-        TeamObject n = new TeamObject();
-        n.setId(iD);
-        n.setTeamName(teaMnamE);
-        n.setTeamNumber(teaMnumbeR);
-        n.setTeamLetter(teaMletteR);
-        n.setRobotName(roboTnamE);
-        n.setLocation(locatioN);
-        n.setTeamComment(comment);
-        
-        teamWriter writer = new teamWriter();
-        writer.writeTeamObject(teaMnumbeR, teaMletteR, n);
     }
     public static void main(String Args[]) throws FileNotFoundException{
         
-        writerTest test = new writerTest();
+        matchWriterTest test = new matchWriterTest();
         test.run();
 
     }

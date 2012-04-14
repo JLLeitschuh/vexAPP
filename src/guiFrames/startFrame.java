@@ -94,21 +94,21 @@ public class startFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 787, Short.MAX_VALUE)
+            .add(0, 719, Short.MAX_VALUE)
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
-                    .add(0, 123, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
-                    .add(0, 124, Short.MAX_VALUE)))
+                    .add(0, 101, Short.MAX_VALUE)
+                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                    .add(0, 102, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 389, Short.MAX_VALUE)
+            .add(0, 564, Short.MAX_VALUE)
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout.createSequentialGroup()
-                    .add(0, 0, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
-                    .add(0, 0, Short.MAX_VALUE)))
+                    .add(0, 59, Short.MAX_VALUE)
+                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                    .add(0, 59, Short.MAX_VALUE)))
         );
 
         pack();
