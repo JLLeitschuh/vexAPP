@@ -5,7 +5,6 @@
 package guiFrames;
 import ActionPacks.matchWriter;
 import Objects.MatchObject;
-import Objects.MatchTeamObject;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +14,16 @@ import java.util.logging.Logger;
  * @author jonathanleitschuh
  */
 public class MatchTeamFrame extends javax.swing.JFrame {
+    private int matchNumber;
 
+    public int getMatchNumber() {
+        return matchNumber;
+    }
+
+    public void setMatchNumber(int matchNumber) {
+        this.matchNumber = matchNumber;
+    }
+    
     /**
      * Creates new form MatchTeamFrame
      */
@@ -51,6 +59,8 @@ public class MatchTeamFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(444, 227));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -162,6 +172,11 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         jPanel1.add(teams, gridBagConstraints);
 
         backButton.setText("<< Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -181,13 +196,7 @@ public class MatchTeamFrame extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jPanel1);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        getContentPane().add(jScrollPane1, gridBagConstraints);
+        getContentPane().add(jScrollPane1, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,6 +204,8 @@ public class MatchTeamFrame extends javax.swing.JFrame {
     private void saveAndCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAndCloseButtonActionPerformed
         // TODO add your handling code here:
         MatchObject match = new MatchObject();
+        
+        
         
         MatchTeamSubFrame redIso = (MatchTeamSubFrame)redIsolation;       
         match.red.isolation.setMatchTeamObject(redIso.getMatchTeam());
@@ -211,17 +222,32 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         match.red.setScore(Integer.parseInt(redTeamScore.getText()));
         match.blue.setScore(Integer.parseInt(blueTeamScore.getText()));
         
+        match.setMatchNumber(matchNumber);
+        
         matchWriter write = new matchWriter();
         try {
             write.writeMatchObjectSimple(match);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MatchTeamFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        matchListFrame frame = new matchListFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
         
         this.dispose();
         
         
     }//GEN-LAST:event_saveAndCloseButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        matchListFrame frame = new matchListFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments

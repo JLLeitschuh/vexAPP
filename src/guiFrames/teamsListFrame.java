@@ -64,6 +64,7 @@ public class teamsListFrame extends javax.swing.JFrame {
         editTeamButton = new javax.swing.JButton();
         deleteTeamButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
@@ -181,12 +182,20 @@ public class teamsListFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
         getContentPane().add(backButton, gridBagConstraints);
 
+        jLabel4.setText("<html> <body> Warning: After you begin entering match information do not change team information. <br> This data only syncronizes with the match information <br> when you choose which team is part of the match. <br> This may cause duplicate teams to be created or cause the program to break. </body>");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 500;
+        getContentPane().add(jLabel4, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        startFrame frame = new startFrame();
+        startFrameSimple frame = new startFrameSimple();
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
@@ -300,6 +309,7 @@ public class teamsListFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton newTeamButton;
     private javax.swing.JList teamList;

@@ -27,6 +27,7 @@ public class matchWriterTest {
     
     public void run() throws FileNotFoundException{
         ArrayList<MatchObject> NAME = new ArrayList<MatchObject>();
+        NAME.clear();
         matchWriter write = new matchWriter();
         write.replaceMatchObject(NAME);
         

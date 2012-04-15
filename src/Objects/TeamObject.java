@@ -87,9 +87,9 @@ public class TeamObject extends TeamLabelObject implements Serializable, Cloneab
     }
     
     public String getTeamShortListNumb(){
-        return (getTeamNumb() + " " + getTeamLetter() + " " + teamname);
+        return (getTeamNumb() + getTeamLetter() + " --  " + teamname);
     }
-
+    
     public String getTeamList() {
         if (getTeamNumb().length() == 1) {
             spacereturnlength = "          ";

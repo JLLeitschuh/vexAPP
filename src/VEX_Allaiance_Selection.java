@@ -1,5 +1,5 @@
 
-import guiFrames.startFrame;
+import guiFrames.startFrameSimple;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -14,7 +14,7 @@ import java.awt.Toolkit;
 public class VEX_Allaiance_Selection {
 
     public static void main(String Args[]) {
-        startFrame window = new startFrame();
+        startFrameSimple window = new startFrameSimple();
         // Get the size of the screen
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         

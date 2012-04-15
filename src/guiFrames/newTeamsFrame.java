@@ -221,6 +221,7 @@ public class newTeamsFrame extends javax.swing.JFrame {
                 team.setTeamLetter(teamLetter.getText().toUpperCase()); //Sets the letter to upper case automatically
                 team.setRobotName(robotName.getText());
                 team.setLocation(location.getText());
+                team.setTeamComment(commentBox.getText());
 
                 // Write a new file that contains the team data
                 teamWriter writer = new teamWriter();
