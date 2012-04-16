@@ -229,12 +229,12 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="editMatchButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Edit Match"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editMatchButtonActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -242,22 +242,25 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="removeLastButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remove Last"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeLastButtonActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
           <GridBagConstraints gridX="8" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="19" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="teamRatingButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Overall Rating"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="teamRatingButtonActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -536,11 +539,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="29_jButton2">
-          <CodeVariable name="jButton2" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="29_editMatchButton">
+          <CodeVariable name="editMatchButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButton2"/>
+              <ComponentRef name="editMatchButton"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -605,11 +608,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="34_jButton3">
-          <CodeVariable name="jButton3" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="34_removeLastButton">
+          <CodeVariable name="removeLastButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButton3"/>
+              <ComponentRef name="removeLastButton"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -674,11 +677,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="39_jButton4">
-          <CodeVariable name="jButton4" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="39_teamRatingButton">
+          <CodeVariable name="teamRatingButton" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButton4"/>
+              <ComponentRef name="teamRatingButton"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>

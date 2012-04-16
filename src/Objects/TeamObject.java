@@ -87,7 +87,19 @@ public class TeamObject extends TeamLabelObject implements Serializable, Cloneab
     }
     
     public String getTeamShortListNumb(){
-        return (getTeamNumb() + getTeamLetter() + " --  " + teamname);
+        if ((getTeamNumb() == null) && (teamname == null)){
+            return ("--");
+        }
+        else if (teamname == null){
+            return (getTeamNumb() + getTeamLetter());
+        }
+        else if (getTeamNumb() == null){
+            return ("" + getTeamLetter() + " --  " + teamname);
+        }
+        else{
+            return (getTeamNumb() + getTeamLetter() + " --  " + teamname);
+        }
+        
     }
     
     public String getTeamList() {
@@ -104,8 +116,8 @@ public class TeamObject extends TeamLabelObject implements Serializable, Cloneab
         }
         return (getIdNumber()+1) + "              " + (getTeamNumb()) + (getTeamLetter()) + spacereturnlength + teamname;
     }
-    public String getTeamShortList(){
-        return (teamname + " " + getTeamNumb() + getTeamLetter());
+    public String getTeamShortList(){        
+            return (teamname + " " + getTeamNumb() + getTeamLetter());
     }
 
     @Override

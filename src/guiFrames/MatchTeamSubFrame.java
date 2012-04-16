@@ -10,8 +10,6 @@ import Objects.TeamObject;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import java.lang.ClassNotFoundException;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -20,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author jonathanleitschuh
  */
 public class MatchTeamSubFrame extends javax.swing.JPanel {
-
+    private int id;
     private int length;
 
     public MatchTeamObject getMatchTeam() {
@@ -43,6 +41,7 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
             team.setTeamName(read.get(selected).getTeamName());
             team.setTeamNumber(read.get(selected).getTeamNumber());
             team.setTeamLetter(read.get(selected).getTeamLetter());
+            team.setId(read.get(selected).getId());
 
 
             team.setAutonomous(autonomous.isSelected());
@@ -67,9 +66,15 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
 
         return team;
     }
+    public void setTeamName(MatchTeamObject teamSet){
+        teamList.setSelectedIndex(teamSet.getIdNumber());
+        teamList.ensureIndexIsVisible(teamSet.getIdNumber());
+        id = teamSet.getIdNumber();
+    }
 
     public void setMatchTeam(MatchTeamObject teamSet) {
-
+        
+        id = teamSet.getIdNumber();
         autonomous.setSelected(teamSet.getAutonomous());
         autonomousScore.setText(Integer.toString(teamSet.getAutonomousScore()));
         batteryFailProblem.setSelected(teamSet.getBatteryFail());

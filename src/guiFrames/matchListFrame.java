@@ -21,6 +21,7 @@ public class matchListFrame extends javax.swing.JFrame {
     private ArrayList<MatchObject> matches = null;
     private DefaultTableModel model = new DefaultTableModel();
     
+    
 
     /**
      * Creates new form matchListFrame
@@ -43,9 +44,9 @@ public class matchListFrame extends javax.swing.JFrame {
         matchListScroll = new javax.swing.JScrollPane();
         matchList = new javax.swing.JTable();
         newMatchButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        editMatchButton = new javax.swing.JButton();
+        removeLastButton = new javax.swing.JButton();
+        teamRatingButton = new javax.swing.JButton();
         backbutton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,35 +128,40 @@ public class matchListFrame extends javax.swing.JFrame {
     gridBagConstraints.insets = new java.awt.Insets(100, 0, 0, 0);
     getContentPane().add(newMatchButton, gridBagConstraints);
 
-    jButton2.setText("Edit Match");
-    jButton2.addActionListener(new java.awt.event.ActionListener() {
+    editMatchButton.setText("Edit Match");
+    editMatchButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton2ActionPerformed(evt);
+            editMatchButtonActionPerformed(evt);
         }
     });
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 8;
     gridBagConstraints.gridy = 4;
-    getContentPane().add(jButton2, gridBagConstraints);
+    getContentPane().add(editMatchButton, gridBagConstraints);
 
-    jButton3.setText("Remove Last");
+    removeLastButton.setText("Remove Last");
+    removeLastButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            removeLastButtonActionPerformed(evt);
+        }
+    });
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 8;
     gridBagConstraints.gridy = 6;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-    getContentPane().add(jButton3, gridBagConstraints);
+    getContentPane().add(removeLastButton, gridBagConstraints);
 
-    jButton4.setText("Overall Rating");
-    jButton4.addActionListener(new java.awt.event.ActionListener() {
+    teamRatingButton.setText("Overall Rating");
+    teamRatingButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton4ActionPerformed(evt);
+            teamRatingButtonActionPerformed(evt);
         }
     });
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridx = 8;
     gridBagConstraints.gridy = 8;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-    getContentPane().add(jButton4, gridBagConstraints);
+    getContentPane().add(teamRatingButton, gridBagConstraints);
 
     backbutton.setText("<< Back");
     backbutton.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +181,19 @@ public class matchListFrame extends javax.swing.JFrame {
     private void newMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMatchButtonActionPerformed
         // TODO add your handling code here:
         MatchObject newMatch = new MatchObject();
+        newMatch.blue.setScore(0);
+        newMatch.red.setScore(0);
+        
+        newMatch.red.interaction.setTeamLetter("");
+        newMatch.red.isolation.setTeamLetter("");
+        newMatch.blue.interaction.setTeamLetter("");
+        newMatch.blue.isolation.setTeamLetter("");
+        
+        newMatch.red.interaction.setTeamName("");
+        newMatch.red.isolation.setTeamName("");
+        newMatch.blue.interaction.setTeamName("");
+        newMatch.blue.isolation.setTeamName("");
+        
         
         newMatch.setMatchNumber(matchList.getRowCount());
         model.addRow(new Object[] {(newMatch.getMatchNumber()+1), newMatch.red.isolation.getTeamShortListNumb(), newMatch.red.interaction.getTeamShortListNumb(),
@@ -187,25 +206,41 @@ public class matchListFrame extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(matchListFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
     }//GEN-LAST:event_newMatchButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void editMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMatchButtonActionPerformed
         // TODO add your handling code here:
+        
+        System.err.println(matchList.getSelectedRow()+1);
+        
+        matches.get(matchList.getSelectedRow());
+        
         MatchTeamFrame frame = new MatchTeamFrame();
+        frame.setMatchNumber(matchList.getSelectedRow());
+        if((!"".equals(matches.get(matchList.getSelectedRow()).blue.interaction.getTeamName())) &&
+                (!"".equals(matches.get(matchList.getSelectedRow()).blue.isolation.getTeamName())) &&
+                (!"".equals(matches.get(matchList.getSelectedRow()).red.interaction.getTeamName())) &&
+                (!"".equals(matches.get(matchList.getSelectedRow()).red.isolation.getTeamName()))){
+            frame.setMatch(matches.get(matchList.getSelectedRow()));
+        }
+        
+        frame.setBlueScore(matches.get(matchList.getSelectedRow()).blue.getScore());
+        frame.setRedScore(matches.get(matchList.getSelectedRow()).red.getScore());
+        
+        
+        
+        
         frame.setSize(this.getWidth(), getHeight());
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
         this.dispose();
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_editMatchButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void teamRatingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamRatingButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_teamRatingButtonActionPerformed
 
     private void backbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonActionPerformed
         // TODO add your handling code here:
@@ -216,6 +251,20 @@ public class matchListFrame extends javax.swing.JFrame {
         //this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_backbuttonActionPerformed
+
+    private void removeLastButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeLastButtonActionPerformed
+        try {
+            // TODO add your handling code here:
+            model.removeRow((matchList.getRowCount()-1));
+            matches.remove((matchList.getRowCount()));
+            matchWriter write = new matchWriter();
+            
+            write.replaceMatchObject(matches);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(matchListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_removeLastButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,12 +309,12 @@ public class matchListFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backbutton;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton editMatchButton;
     private javax.swing.JTable matchList;
     private javax.swing.JScrollPane matchListScroll;
     private javax.swing.JPanel matchTable;
     private javax.swing.JButton newMatchButton;
+    private javax.swing.JButton removeLastButton;
+    private javax.swing.JButton teamRatingButton;
     // End of variables declaration//GEN-END:variables
 }

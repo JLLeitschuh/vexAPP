@@ -12,22 +12,24 @@ import java.io.Serializable;
  */
 public class MatchTeamObject extends TeamObject implements Serializable, Cloneable {
 
-    private Boolean autonomous;
-    private Boolean batteryfail;
-    private Boolean disqualified;
-    private Boolean doublernegatorearly;
-    private Boolean doublerused;
-    private Boolean entanglement;
-    private Boolean matchmissed;
-    private Boolean negatorused;
-    private Boolean otherproblem;
-    private Boolean poorrobot;
-    private Boolean superiorrobot;
-    private Boolean vexnetfail;
-    private Boolean wireUnpluged;
-    private int autonomousscore;
-    private int score;
-    private String comment;
+    private Boolean autonomous = false;
+    private Boolean batteryfail = false;
+    private Boolean disqualified = false;
+    private Boolean doublernegatorearly = false;
+    private Boolean doublerused = false;
+    private Boolean entanglement = false;
+    private Boolean matchmissed = false;
+    private Boolean negatorused = false;
+    private Boolean otherproblem = false;
+    private Boolean poorrobot = false;
+    private Boolean superiorrobot = false;
+    private Boolean vexnetfail = false;
+    private Boolean wireUnpluged = false;
+    private int autonomousscore = 0;
+    private int score = 0;
+    private String comment = "";
+    
+    
 
     public void setMatchTeamObject(MatchTeamObject t){
         System.out.println("Passed into object");

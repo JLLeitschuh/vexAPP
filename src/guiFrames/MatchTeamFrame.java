@@ -3,9 +3,12 @@
  * and open the template in the editor.
  */
 package guiFrames;
+import ActionPacks.matchReader;
 import ActionPacks.matchWriter;
 import Objects.MatchObject;
+import Objects.MatchTeamObject;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +25,37 @@ public class MatchTeamFrame extends javax.swing.JFrame {
 
     public void setMatchNumber(int matchNumber) {
         this.matchNumber = matchNumber;
+        teams.setBorder(javax.swing.BorderFactory.createTitledBorder("Match " + (matchNumber + 1) + " Info"));
+    }
+    
+    public void setMatch(MatchObject match){
+        
+        MatchTeamSubFrame redIso = (MatchTeamSubFrame)redIsolation; 
+        redIso.setMatchTeam(match.red.isolation);
+        redIso.setTeamName(match.red.isolation);
+        
+        
+        MatchTeamSubFrame redInter = (MatchTeamSubFrame)redInteraction;       
+        redInter.setMatchTeam(match.red.interaction);
+        redInter.setTeamName(match.red.interaction);
+        
+        MatchTeamSubFrame blueIso = (MatchTeamSubFrame)blueIsolation;
+        blueIso.setMatchTeam(match.blue.isolation);
+        blueIso.setTeamName(match.blue.isolation);
+        
+        
+        MatchTeamSubFrame blueInter = (MatchTeamSubFrame)blueInteraction;
+        blueInter.setMatchTeam(match.blue.interaction);
+        blueInter.setTeamName(match.blue.interaction);
+    }
+    
+    public void setBlueScore(int blue){
+        blueTeamScore.setText(Integer.toString(blue));
+        
+    }
+    
+    public void setRedScore(int red){
+        redTeamScore.setText(Integer.toString(red));
     }
     
     /**
@@ -64,7 +98,7 @@ public class MatchTeamFrame extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        teams.setBorder(javax.swing.BorderFactory.createTitledBorder("Match Info"));
+        teams.setBorder(javax.swing.BorderFactory.createTitledBorder("Match " + (matchNumber + 1) + " Info"));
         java.awt.GridBagLayout teamsLayout = new java.awt.GridBagLayout();
         teamsLayout.columnWidths = new int[] {0, 5, 0, 5, 0};
         teamsLayout.rowHeights = new int[] {0};
@@ -203,8 +237,17 @@ public class MatchTeamFrame extends javax.swing.JFrame {
 
     private void saveAndCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAndCloseButtonActionPerformed
         // TODO add your handling code here:
-        MatchObject match = new MatchObject();
+        matchReader read = new matchReader();
+        ArrayList<MatchObject> matches = null;
         
+        try {
+            matches = read.readMatchObject();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        MatchObject match = new MatchObject();
         
         
         MatchTeamSubFrame redIso = (MatchTeamSubFrame)redIsolation;       
@@ -224,9 +267,12 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         
         match.setMatchNumber(matchNumber);
         
+        
+        matches.set(matchNumber, match);
+        
         matchWriter write = new matchWriter();
         try {
-            write.writeMatchObjectSimple(match);
+            write.replaceMatchObject(matches);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MatchTeamFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -74,7 +74,30 @@ public class MatchAllianceObject implements Serializable{
         System.out.println("This is out!");
     }
     
-    public void setIsolation (MatchTeamObject iso){
+    public void setIsolation (MatchTeamObject t){
+        isolation.setTeamNumber(t.getTeamNumber());
+        isolation.setTeamNumber(t.getTeamNumb());
+        isolation.setTeamLetter(t.getTeamLetter());
+        isolation.setId(t.getIdNumber());
+        isolation.setTeamName(t.getTeamName());
+        isolation.setLocation(t.getLocation());
+        isolation.setRobotName(t.getRobotName());
+        
+        isolation.setAutonomous(t.getAutonomous());
+        isolation.setBatteryFail(t.getBatteryFail());
+        isolation.setDisqualified(t.getDisqualified());
+        isolation.setDisqualified(t.getDoublerNegatorEarly());
+        isolation.setDoublerUsed(t.getDoublerUsed());
+        isolation.setEntanglement(t.getEntanglement());
+        isolation.setMatchMissed(t.getMatchMissed());
+        isolation.setNegatorUsed(t.getNegatorUsed());
+        isolation.setOtherProblem(t.getNegatorUsed());
+        isolation.setPoorRobot(t.getPoorRobot());
+        isolation.setSuperiorRobot(t.getSuperiorRobot());
+        isolation.setVexNetFail(t.getVexNetFail());
+        isolation.setWireUnpluged(t.getWireUnpluged());
+        isolation.setAutonomousScore(t.getAutonomousScore());
+        isolation.setComment( t.getComment());
         
     }
     
