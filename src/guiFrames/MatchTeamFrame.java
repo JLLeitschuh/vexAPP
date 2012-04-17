@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -94,7 +95,7 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(444, 227));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(600, 400));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -120,6 +121,11 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         red.add(redTeamScoreLabel, gridBagConstraints);
 
         redTeamScore.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        redTeamScore.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                redTeamScoreFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -167,6 +173,11 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         blue.add(blueTeamScoreLabel, gridBagConstraints);
 
         blueTeamScore.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        blueTeamScore.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                blueTeamScoreFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -237,6 +248,7 @@ public class MatchTeamFrame extends javax.swing.JFrame {
 
     private void saveAndCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAndCloseButtonActionPerformed
         // TODO add your handling code here:
+        
         matchReader read = new matchReader();
         ArrayList<MatchObject> matches = null;
         
@@ -265,9 +277,17 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         match.red.setScore(Integer.parseInt(redTeamScore.getText()));
         match.blue.setScore(Integer.parseInt(blueTeamScore.getText()));
         
+        
+        if((match.blue.interaction.getIdNumber() == match.blue.isolation.getIdNumber())||
+                (match.red.interaction.getIdNumber() == match.red.isolation.getIdNumber())||
+                (match.red.interaction.getIdNumber() == match.blue.isolation.getIdNumber())||
+                (match.blue.interaction.getIdNumber() == match.red.isolation.getIdNumber())||
+                (match.red.interaction.getIdNumber() == match.blue.interaction.getIdNumber())||
+                (match.red.isolation.getIdNumber() == match.blue.isolation.getIdNumber())){
+            JOptionPane.showMessageDialog(this, "There must be four diffrent teams in a match", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
         match.setMatchNumber(matchNumber);
-        
-        
         matches.set(matchNumber, match);
         
         matchWriter write = new matchWriter();
@@ -282,6 +302,7 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         frame.setVisible(true);
         
         this.dispose();
+        }
         
         
     }//GEN-LAST:event_saveAndCloseButtonActionPerformed
@@ -294,6 +315,38 @@ public class MatchTeamFrame extends javax.swing.JFrame {
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void redTeamScoreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_redTeamScoreFocusLost
+        // TODO add your handling code here:
+        try{
+            Integer.parseInt(redTeamScore.getText());
+        }
+        catch(Exception e){
+            redTeamScore.setText("0");
+        }
+        
+        if((Integer.parseInt(redTeamScore.getText())) == 0 ){
+            
+        }else if((Integer.parseInt(redTeamScore.getText()))<0){
+            redTeamScore.setText("0");
+        }
+    }//GEN-LAST:event_redTeamScoreFocusLost
+
+    private void blueTeamScoreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_blueTeamScoreFocusLost
+        // TODO add your handling code here:
+        try{
+            Integer.parseInt(blueTeamScore.getText());
+        }
+        catch(Exception e){
+            blueTeamScore.setText("0");
+        }
+        
+        if((Integer.parseInt(blueTeamScore.getText())) == 0 ){
+            
+        }else if((Integer.parseInt(blueTeamScore.getText()))<0){
+            blueTeamScore.setText("0");
+        }
+    }//GEN-LAST:event_blueTeamScoreFocusLost
 
     /**
      * @param args the command line arguments

@@ -14,7 +14,6 @@ public class MatchObject implements Serializable, Cloneable {
 
     private int matchnumber;
     private String matchnumb;
-    private int score;
     public MatchAllianceObject red = new MatchAllianceObject();
     public MatchAllianceObject blue = new MatchAllianceObject();
     

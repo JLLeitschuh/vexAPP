@@ -8,9 +8,9 @@ package guiFrames;
  *
  * @author jonathanleitschuh
  */
-import ActionPacks.teamNameReader;
-import ActionPacks.teamNameWriter;
+import ActionPacks.*;
 import Objects.TeamObject;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +18,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class teamsListFrame extends javax.swing.JFrame {
+
     private int length;
 
     /**
@@ -65,12 +66,14 @@ public class teamsListFrame extends javax.swing.JFrame {
         deleteTeamButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        csvExport = new javax.swing.JButton();
+        csvImport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         teamListFrame.setBorder(javax.swing.BorderFactory.createTitledBorder("Team List:"));
@@ -122,9 +125,9 @@ public class teamsListFrame extends javax.swing.JFrame {
         teamListFrame.add(jLabel3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridheight = 9;
+        gridBagConstraints.gridheight = 13;
         gridBagConstraints.ipadx = 20;
         gridBagConstraints.ipady = 90;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -139,7 +142,7 @@ public class teamsListFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(40, 0, 0, 0);
         getContentPane().add(newTeamButton, gridBagConstraints);
@@ -152,7 +155,7 @@ public class teamsListFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
         getContentPane().add(editTeamButton, gridBagConstraints);
 
@@ -164,7 +167,7 @@ public class teamsListFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 10;
         getContentPane().add(deleteTeamButton, gridBagConstraints);
 
@@ -176,19 +179,43 @@ public class teamsListFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
         getContentPane().add(backButton, gridBagConstraints);
 
-        jLabel4.setText("<html> <body> Warning: After you begin entering match information do not change team information. <br> This data only syncronizes with the match information <br> when you choose which team is part of the match. <br> This may cause duplicate teams to be created or cause the program to break. </body>");
+        jLabel4.setText("Note: Deleting a team has been disabled");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 500;
+        gridBagConstraints.ipadx = 200;
         getContentPane().add(jLabel4, gridBagConstraints);
+
+        csvExport.setText("Export .csv");
+        csvExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csvExportActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        getContentPane().add(csvExport, gridBagConstraints);
+
+        csvImport.setText("Import .csv");
+        csvImport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csvImportActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.insets = new java.awt.Insets(50, 0, 0, 0);
+        getContentPane().add(csvImport, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,6 +240,7 @@ public class teamsListFrame extends javax.swing.JFrame {
 
     private void editTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTeamButtonActionPerformed
         // TODO add your handling code here:
+
         try {
             //Get the selected team from the list
             int selected = teamList.getSelectedIndex();
@@ -238,34 +266,59 @@ public class teamsListFrame extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Please Select a Team From the List", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_editTeamButtonActionPerformed
 
     private void deleteTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTeamButtonActionPerformed
-        try {
-            //Get the selected team from the list
-            int selected = teamList.getSelectedIndex();
-            teamNameReader set = new teamNameReader();
-            ArrayList<TeamObject> read = null;
-            try {
-                read = set.readTeamNameObject();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            read.remove(selected);
-            
-            teamNameWriter write = new teamNameWriter();
-            write.replaceTeamObject(read);
-            
-            teamsListFrame frame = new teamsListFrame();
-            frame.setSize(this.getWidth(), getHeight());
-            frame.setLocation(this.getX(), this.getY());
-            frame.setVisible(true);
-            this.dispose();
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Please Select a Team From the List", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
+        /*
+         * try { //Get the selected team from the list int selected =
+         * teamList.getSelectedIndex(); teamNameReader set = new
+         * teamNameReader(); ArrayList<TeamObject> read = null; try { read =
+         * set.readTeamNameObject(); } catch (ClassNotFoundException ex) {
+         * Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE,
+         * null, ex); } read.remove(selected);
+         *
+         * teamNameWriter write = new teamNameWriter();
+         * write.replaceTeamObject(read);
+         *
+         * teamsListFrame frame = new teamsListFrame();
+         * frame.setSize(this.getWidth(), getHeight());
+         * frame.setLocation(this.getX(), this.getY()); frame.setVisible(true);
+         * this.dispose();
+         *
+         * } catch (Exception e) { JOptionPane.showMessageDialog(this, "Please
+         * Select a Team From the List", "ERROR", JOptionPane.ERROR_MESSAGE); }
+         */
     }//GEN-LAST:event_deleteTeamButtonActionPerformed
+
+    private void csvImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvImportActionPerformed
+        // TODO add your handling code here:
+        csvReader read = new csvReader();
+        teamNameWriter write = new teamNameWriter();
+
+        try {
+            write.replaceTeamObject(read.readTeamObject());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        teamsListFrame frame = new teamsListFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_csvImportActionPerformed
+
+    private void csvExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvExportActionPerformed
+        // TODO add your handling code here:
+        teamNameReader read = new teamNameReader();
+        csvWriter write = new csvWriter();
+        try {
+            write.writeOld(read.readTeamNameObject());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(teamsListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_csvExportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,6 +357,8 @@ public class teamsListFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton backButton;
+    private javax.swing.JButton csvExport;
+    private javax.swing.JButton csvImport;
     private javax.swing.JButton deleteTeamButton;
     private javax.swing.JButton editTeamButton;
     private javax.swing.JLabel jLabel1;

@@ -1,5 +1,11 @@
 package guiFrames;
 
+import ActionPacks.matchWriterTest;
+import ActionPacks.writerTest;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -34,17 +40,21 @@ public class startFrameSimple extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         TeamsEditButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        resetButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VEX Alliance Selection App");
 
         startMainFrame.setName("primaryFrame");
-        startMainFrame.setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagLayout startMainFrameLayout = new java.awt.GridBagLayout();
+        startMainFrameLayout.columnWidths = new int[] {0, 5, 0, 5, 0};
+        startMainFrameLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        startMainFrame.setLayout(startMainFrameLayout);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("<html>\n<center>\nWelcome to the VEX Alliance Selection App <br>\nBy Team: 4886\n</center>\n");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         startMainFrame.add(jLabel1, gridBagConstraints);
@@ -57,7 +67,7 @@ public class startFrameSimple extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
         startMainFrame.add(jButton1, gridBagConstraints);
@@ -70,36 +80,45 @@ public class startFrameSimple extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
         startMainFrame.add(TeamsEditButton, gridBagConstraints);
 
         jLabel2.setText("<html>\n<center>THIS APLICATION CURRENTLY ONLY SUPPORTS ONE MEET.\n<br>\nTHIS IS BECAUSE OF THE TIME CONSTRAINTS OF MAKING THIS APP");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
         startMainFrame.add(jLabel2, gridBagConstraints);
+
+        resetButton.setText("Reset / First Run Button");
+        resetButton.setToolTipText("This will create the files and/or reset them to their original state.");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.insets = new java.awt.Insets(24, 0, 24, 0);
+        startMainFrame.add(resetButton, gridBagConstraints);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 719, Short.MAX_VALUE)
-            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(layout.createSequentialGroup()
-                    .add(0, 101, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-                    .add(0, 102, Short.MAX_VALUE)))
+            .add(layout.createSequentialGroup()
+                .add(0, 101, Short.MAX_VALUE)
+                .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .add(0, 102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 564, Short.MAX_VALUE)
-            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(layout.createSequentialGroup()
-                    .add(0, 59, Short.MAX_VALUE)
-                    .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
-                    .add(0, 59, Short.MAX_VALUE)))
+            .add(layout.createSequentialGroup()
+                .add(0, 103, Short.MAX_VALUE)
+                .add(startMainFrame, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                .add(0, 103, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,6 +143,13 @@ public class startFrameSimple extends javax.swing.JFrame {
         //this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        // TODO add your handling code here:
+        confirmFileReset reset = new confirmFileReset(this, true);
+        reset.setLocation(this.getX(), this.getY());
+        reset.setVisible(true);
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +195,7 @@ public class startFrameSimple extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton resetButton;
     private javax.swing.JPanel startMainFrame;
     // End of variables declaration//GEN-END:variables
 }

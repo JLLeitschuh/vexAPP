@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -77,6 +78,7 @@ public class matchListFrame extends javax.swing.JFrame {
         {
             model.addRow(new Object[] {(p.getMatchNumber()+1), p.red.isolation.getTeamShortListNumb(), p.red.interaction.getTeamShortListNumb(),
                 p.red.getScore(), p.blue.isolation.getTeamShortListNumb(), p.blue.interaction.getTeamShortListNumb(), p.blue.getScore()});
+
     }
 
     int nameWidth = 150;
@@ -211,8 +213,7 @@ public class matchListFrame extends javax.swing.JFrame {
     private void editMatchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMatchButtonActionPerformed
         // TODO add your handling code here:
         
-        System.err.println(matchList.getSelectedRow()+1);
-        
+        try{
         matches.get(matchList.getSelectedRow());
         
         MatchTeamFrame frame = new MatchTeamFrame();
@@ -234,12 +235,21 @@ public class matchListFrame extends javax.swing.JFrame {
         frame.setLocation(this.getX(), this.getY());
         frame.setVisible(true);
         this.dispose();
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select a Match From the List", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
         
         
     }//GEN-LAST:event_editMatchButtonActionPerformed
 
     private void teamRatingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamRatingButtonActionPerformed
         // TODO add your handling code here:
+        teamRankingFrame frame = new teamRankingFrame();
+        frame.setSize(this.getWidth(), getHeight());
+        frame.setLocation(this.getX(), this.getY());
+        frame.setVisible(true);
+        //this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_teamRatingButtonActionPerformed
 
     private void backbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbuttonActionPerformed

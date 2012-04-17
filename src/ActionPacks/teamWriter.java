@@ -4,10 +4,7 @@
  */
 package ActionPacks;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +16,7 @@ public class teamWriter {
     public void writeTeamObject(String TEAMNUMBER, String TEAMLETTER, Object Team) throws FileNotFoundException{
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/" + TEAMNUMBER + "_" + TEAMLETTER + ".dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File("lib/" + TEAMNUMBER + "_" + TEAMLETTER + ".dat")));
             oos.writeObject(Team);
             
         } catch (IOException ex) {

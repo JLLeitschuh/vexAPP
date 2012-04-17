@@ -309,6 +309,11 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
 
         autonomousScore.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         autonomousScore.setText("0");
+        autonomousScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autonomousScoreActionPerformed(evt);
+            }
+        });
         autonomousScore.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 autonomousScoreFocusLost(evt);
@@ -390,6 +395,11 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
                 disqualifiedActionPerformed(evt);
             }
         });
+        disqualified.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                disqualifiedFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -440,6 +450,17 @@ public class MatchTeamSubFrame extends javax.swing.JPanel {
         }
             
     }//GEN-LAST:event_autonomousScoreFocusLost
+
+    private void autonomousScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autonomousScoreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_autonomousScoreActionPerformed
+
+    private void disqualifiedFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_disqualifiedFocusLost
+        // TODO add your handling code here:
+        if((doublerNegatorEarlyProblem.isSelected() == true) || (matchMissedProblem.isSelected() == true)){
+            disqualified.setSelected(true);
+        }
+    }//GEN-LAST:event_disqualifiedFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox autonomous;

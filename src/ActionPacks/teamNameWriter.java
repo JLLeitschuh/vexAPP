@@ -5,10 +5,7 @@
 package ActionPacks;
 
 import Objects.TeamObject;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +16,8 @@ import java.util.logging.Logger;
  */
 public class teamNameWriter {
     private int h = 0;
+    private String oldPath = "src/Data/teamData/teams/MASTERTEAMLIST.dat";
+    private String newPath = "lib/MASTERTEAMLIST.dat";
 
     private int placeFinder(int ID, ArrayList<TeamObject> count) {
         
@@ -50,7 +49,7 @@ public class teamNameWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(newPath)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
@@ -84,7 +83,7 @@ public class teamNameWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(newPath)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
@@ -120,7 +119,7 @@ public class teamNameWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(newPath)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {

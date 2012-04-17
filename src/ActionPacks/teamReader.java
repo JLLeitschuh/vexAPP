@@ -16,11 +16,14 @@ import java.util.logging.Logger;
  * @author jonathanleitschuh
  */
 public class teamReader {
+    //private String oldPath = "src/Data/teamData/teams/" + TEAMNUMBER + "_" + TEAMLETTER + ".dat";
+    
     public Object readTeamObject(String TEAMNUMBER, String TEAMLETTER) throws ClassNotFoundException{
+        
         
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("src/Data/teamData/teams/" + TEAMNUMBER + "_" + TEAMLETTER + ".dat"));
+            ois = new ObjectInputStream(new FileInputStream("lib/" + TEAMNUMBER + "_" + TEAMLETTER + ".dat"));
             TeamObject team = (TeamObject)ois.readObject();
             return team;
         } catch (IOException ex) {
