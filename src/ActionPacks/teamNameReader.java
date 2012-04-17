@@ -17,11 +17,14 @@ import java.util.logging.Logger;
  * @author jonathanleitschuh
  */
 public class teamNameReader {
+    private String oldPath = "src/Data/teamData/teams/MASTERTEAMLIST.dat";
+    private String newPath = "lib/MASTERTEAMLIST.dat";
+    
     public ArrayList<TeamObject> readTeamNameObject() throws ClassNotFoundException{
         
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("src/Data/teamData/teams/MASTERTEAMLIST.dat"));
+            ois = new ObjectInputStream(new FileInputStream(newPath));
             ArrayList<TeamObject> team = (ArrayList<TeamObject>)ois.readObject();
             return team;
         } catch (IOException ex) {

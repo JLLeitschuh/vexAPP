@@ -5,10 +5,7 @@
 package ActionPacks;
 
 import Objects.MatchObject;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +16,7 @@ import java.util.logging.Logger;
  */
 public class matchWriter {
     private int h = 0;
+    private String path = "lib/WORLDS.dat";
 
     private int placeFinder(int ID, ArrayList<MatchObject> count) {
         
@@ -50,7 +48,7 @@ public class matchWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(path)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
@@ -84,7 +82,7 @@ public class matchWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(path)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
@@ -111,7 +109,7 @@ public class matchWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(path)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {
@@ -140,7 +138,7 @@ public class matchWriter {
         //Save this file to the master team list file
         ObjectOutputStream oos = null;
         try {
-            oos = new ObjectOutputStream(new FileOutputStream("src/Data/eventData/events/WORLDS.dat"));
+            oos = new ObjectOutputStream(new FileOutputStream(new File(path)));
             oos.writeObject(NAME);
 
         } catch (IOException ex) {

@@ -21,7 +21,7 @@ public class matchReader {
         
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream("src/Data/eventData/events/WORLDS.dat"));
+            ois = new ObjectInputStream(new FileInputStream("lib/WORLDS.dat"));
             ArrayList<MatchObject> team = (ArrayList<MatchObject>)ois.readObject();
             return team;
         } catch (IOException ex) {
